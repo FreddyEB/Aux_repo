@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   # root "posts#index"
   get '/Home', to: 'static_pages#Home'
   root 'static_pages#Home'
+  resources :boards
 end
