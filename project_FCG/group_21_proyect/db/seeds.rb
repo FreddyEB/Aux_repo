@@ -53,6 +53,16 @@ st2 = State.create(name: 'Early stages', board_id: 1)
 st3 = State.create(name: 'In progress', board_id: 1)
 st4 = State.create(name: 'Finished', board_id: 1)
 
+st11 = State.create(name: 'Not started yet', board_id: 2)
+st22 = State.create(name: 'Early stages 2', board_id: 2)
+st33 = State.create(name: 'In progress 2', board_id: 2)
+st44 = State.create(name: 'Finished 2', board_id: 2)
+
+st111 = State.create(name: 'Not started 3', board_id: 3)
+st222 = State.create(name: 'Early stages 3', board_id: 3)
+st333 = State.create(name: 'In progress 3', board_id: 3)
+st444 = State.create(name: 'Finished 3', board_id: 3)
+
 task1_c = Task.create(
   title: 'Avanzar en web',
   description: 'Navegar las olas del código y explorar nuevas tecnologías.',
@@ -89,7 +99,7 @@ task4_c = Task.create(
   priority: 'Medium',
   custom_attributes: '',
   status: '',
-  state_id: 5,
+  state_id: 4,
   user_id: 3,
 )
 
@@ -120,8 +130,8 @@ task1_w = Task.create(
   priority: 'High',
   custom_attributes: '',
   status: '',
-  state_id: 4,
-  user_id: 1,
+  state_id: 5,
+  user_id: 2,
 )
 
 task2_w = Task.create(
@@ -130,7 +140,7 @@ task2_w = Task.create(
   priority: 'Medium',
   custom_attributes: '',
   status: '',
-  state_id: 1,
+  state_id: 5,
   user_id: 2,
 )
 
@@ -140,7 +150,7 @@ task3_w = Task.create(
   priority: 'High',
   custom_attributes: '',
   status: '',
-  state_id: 2,
+  state_id: 6,
   user_id: 3,
 )
 
@@ -150,8 +160,8 @@ task4_w = Task.create(
   priority: 'Medium',
   custom_attributes: '',
   status: '',
-  state_id: 2,
-  user_id: 1,
+  state_id: 7,
+  user_id: 2,
 )
 
 task5_w = Task.create(
@@ -160,7 +170,7 @@ task5_w = Task.create(
   priority: 'Low',
   custom_attributes: '',
   status: '',
-  state_id: 3,
+  state_id: 8,
   user_id: 2,
 )
 
@@ -171,7 +181,7 @@ task6_w = Task.create(
   custom_attributes: '',
   status: '',
   state_id: 5,
-  user_id: 1,
+  user_id: 3,
 )
 
 task7_w = Task.create(
@@ -180,7 +190,7 @@ task7_w = Task.create(
   priority: 'High',
   custom_attributes: '',
   status: '',
-  state_id: 5,
+  state_id: 7,
   user_id: 3,
 )
 
@@ -191,7 +201,7 @@ task1_h = Task.create(
   priority: 'Low',
   custom_attributes: '',
   status: '',
-  state_id: 4,
+  state_id: 9,
   user_id: 3,
 )
 
@@ -201,7 +211,7 @@ task2_h = Task.create(
   priority: 'Medium',
   custom_attributes: '',
   status: '',
-  state_id: 3,
+  state_id: 10,
   user_id: 1,
 )
 
@@ -211,7 +221,7 @@ task3_h = Task.create(
   priority: 'High',
   custom_attributes: '',
   status: '',
-  state_id: 2,
+  state_id: 10,
   user_id: 1,
 )
 
@@ -221,7 +231,7 @@ task4_h = Task.create(
   priority: 'High',
   custom_attributes: '',
   status: '',
-  state_id: 5,
+  state_id: 11,
   user_id: 2,
 )
 
@@ -231,7 +241,7 @@ task5_h = Task.create(
   priority: 'Medium',
   custom_attributes: '',
   status: '',
-  state_id: 1,
+  state_id: 12,
   user_id: 2,
 )
 

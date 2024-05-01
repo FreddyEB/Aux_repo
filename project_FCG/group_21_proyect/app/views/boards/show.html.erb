@@ -1,0 +1,21 @@
+<div class="container-l" style='margin: 10px'>
+    <div class="container text-center">
+        <h1 style="font-family: Comic sans;"><%= @board.title %></h1>
+        <h2 style="font-family: Comic sans;"><%= @board.description %></h2>
+        <div class="row" style="margin: 20px">
+            <% @states.each do |state| %>
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title" style="font-family:verdana;">  <%= state.name %> </h4>
+                                <% state.tasks.each do |task| %>
+                                    <button class="btn btn-primary"><%= task.title %></button>
+                                <% end %>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+        <%= link_to 'Back to [Boards]', boards_path, class: 'btn btn-success'%>
+    </div>    
+</div>
