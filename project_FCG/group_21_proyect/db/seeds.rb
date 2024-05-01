@@ -33,17 +33,25 @@ b1 = Board.create(
 b2 = Board.create(
     title: 'My Second board',
     description: 'This board will be used for work assignments',
-    )
+)
 b3 = Board.create(
     title: 'My Third board',
     description: 'This board will be used for at home tasks',
 )
-        
-        
-st1 = State.create(name: 'Not started')
-st2 = State.create(name: 'Early stages')
-st3 = State.create(name: 'In progress')
-st4 = State.create(name: 'Finished')
+
+b1.users << cb
+b1.users << fb
+b1.users << gb
+
+b2.users << cb
+b2.users << fb
+
+b1.users << fb
+
+st1 = State.create(name: 'Not started', board_id: 1)
+st2 = State.create(name: 'Early stages', board_id: 1)
+st3 = State.create(name: 'In progress', board_id: 1)
+st4 = State.create(name: 'Finished', board_id: 1)
 
 task1_c = Task.create(
   title: 'Avanzar en web',

@@ -1,5 +1,23 @@
-<div class="container">
+<title>Boards</title>
+<div class="container-fluid">
+    <h1> Welcome to your TrelloClone's Boards </h1>
+</div>
+
+<div class="container-l" style='margin: 30px'>
     <div class="container text-center">
-        <h1>Boards</h1>
+        <table class="table table-striped-columns table-hover">
+            <tr>
+                <td id="td1" style="background-color: black; color: white;"> TITLE </td>
+                <td id="td1" style="background-color: black; color: white;"> DESCRIPTION </td>
+                <td id="td1" style="background-color: black; color: white;"> USER </td>
+            </tr>
+            <% @boards.each do |board| %>
+            <tr>
+                <td><%= board.title %></td>
+                <td><%= board.description %></td>
+                <td><%= board.user_id %></td> 
+            </tr>
+            <% end %>
+        </table>
     </div>
 </div>

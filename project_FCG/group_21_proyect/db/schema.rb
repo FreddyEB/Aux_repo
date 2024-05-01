@@ -17,8 +17,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_30_224704) do
   create_table "boards", force: :cascade do |t|
     t.string "title", default: "", null: false
     t.text "description", default: "", null: false
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_boards_on_user_id"
   end
 
   create_table "states", force: :cascade do |t|
@@ -35,10 +37,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_30_224704) do
     t.string "priority", default: "", null: false
     t.string "custom_attributes", default: "", null: false
     t.string "status", default: "", null: false
+    t.bigint "user_id"
+    t.bigint "state_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "state_id"
-    t.bigint "user_id"
     t.index ["state_id"], name: "index_tasks_on_state_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
