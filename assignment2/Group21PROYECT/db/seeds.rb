@@ -63,6 +63,10 @@ st222 = State.create(name: 'Early stages 3', board_id: 3)
 st333 = State.create(name: 'In progress 3', board_id: 3)
 st444 = State.create(name: 'Finished 3', board_id: 3)
 
+as1 = AsigneeTask.create(user_id: 1)
+as2 = AsigneeTask.create(user_id: 2)
+as3 = AsigneeTask.create(user_id: 3)
+
 task1_c = Task.create(
   title: 'Avanzar en web',
   description: 'Navegar las olas del código y explorar nuevas tecnologías.',
@@ -71,6 +75,7 @@ task1_c = Task.create(
   status: '',
   state_id: 1,
   user_id: 3,
+  asignee_task_id: 1,
 )
 
 task2_c = Task.create(
@@ -81,6 +86,7 @@ task2_c = Task.create(
   status: '',
   state_id: 1,
   user_id: 1,
+  asignee_task_id: 2,
 )
 
 task3_c = Task.create(
@@ -91,6 +97,7 @@ task3_c = Task.create(
   status: '',
   state_id: 2,
   user_id: 2,
+  asignee_task_id: 1,
 )
 
 task4_c = Task.create(
@@ -101,6 +108,7 @@ task4_c = Task.create(
   status: '',
   state_id: 4,
   user_id: 3,
+  asignee_task_id: 2,
 )
 
 task5_c = Task.create(
@@ -111,6 +119,7 @@ task5_c = Task.create(
   status: '',
   state_id: 3,
   user_id: 1,
+  asignee_task_id: 3,
 )
 
 task6_c = Task.create(
@@ -121,6 +130,7 @@ task6_c = Task.create(
   status: '',
   state_id: 4,
   user_id: 1,
+  asignee_task_id: 2,
 )
 
 
@@ -132,6 +142,7 @@ task1_w = Task.create(
   status: '',
   state_id: 5,
   user_id: 2,
+  asignee_task_id: 3,
 )
 
 task2_w = Task.create(
@@ -142,6 +153,7 @@ task2_w = Task.create(
   status: '',
   state_id: 5,
   user_id: 2,
+  asignee_task_id: 3,
 )
 
 task3_w = Task.create(
@@ -152,6 +164,7 @@ task3_w = Task.create(
   status: '',
   state_id: 6,
   user_id: 3,
+  asignee_task_id: 1,
 )
 
 task4_w = Task.create(
@@ -162,6 +175,7 @@ task4_w = Task.create(
   status: '',
   state_id: 7,
   user_id: 2,
+  asignee_task_id: 1,
 )
 
 task5_w = Task.create(
@@ -172,6 +186,7 @@ task5_w = Task.create(
   status: '',
   state_id: 8,
   user_id: 2,
+  asignee_task_id: 3,
 )
 
 task6_w = Task.create(
@@ -182,6 +197,7 @@ task6_w = Task.create(
   status: '',
   state_id: 5,
   user_id: 3,
+  asignee_task_id: 2,
 )
 
 task7_w = Task.create(
@@ -192,6 +208,7 @@ task7_w = Task.create(
   status: '',
   state_id: 7,
   user_id: 3,
+  asignee_task_id: 2,
 )
 
 
@@ -203,6 +220,7 @@ task1_h = Task.create(
   status: '',
   state_id: 9,
   user_id: 3,
+  asignee_task_id: 2,
 )
 
 task2_h = Task.create(
@@ -213,6 +231,7 @@ task2_h = Task.create(
   status: '',
   state_id: 10,
   user_id: 1,
+  asignee_task_id: 2,
 )
 
 task3_h = Task.create(
@@ -223,6 +242,7 @@ task3_h = Task.create(
   status: '',
   state_id: 10,
   user_id: 1,
+  asignee_task_id: 3,
 )
 
 task4_h = Task.create(
@@ -233,6 +253,7 @@ task4_h = Task.create(
   status: '',
   state_id: 11,
   user_id: 2,
+  asignee_task_id: 1,
 )
 
 task5_h = Task.create(
@@ -243,5 +264,6 @@ task5_h = Task.create(
   status: '',
   state_id: 12,
   user_id: 2,
+  asignee_task_id: 3,
 )
 

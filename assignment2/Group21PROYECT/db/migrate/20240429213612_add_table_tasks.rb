@@ -7,6 +7,7 @@ class AddTableTasks < ActiveRecord::Migration[7.1]
       t.string :custom_attributes, null: false, default: ''
       t.string :status, null: false, default: ''
       t.references :user
+      t.references :asignee_task
       t.references :state
       t.timestamps
     end

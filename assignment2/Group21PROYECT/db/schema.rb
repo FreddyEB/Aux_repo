@@ -10,9 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_30_224704) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_02_001555) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "asignee_tasks", force: :cascade do |t|
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_asignee_tasks_on_user_id"
+  end
 
   create_table "boards", force: :cascade do |t|
     t.string "title", default: "", null: false
@@ -38,9 +43,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_30_224704) do
     t.string "custom_attributes", default: "", null: false
     t.string "status", default: "", null: false
     t.bigint "user_id"
+    t.bigint "asignee_task_id"
     t.bigint "state_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["asignee_task_id"], name: "index_tasks_on_asignee_task_id"
     t.index ["state_id"], name: "index_tasks_on_state_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
