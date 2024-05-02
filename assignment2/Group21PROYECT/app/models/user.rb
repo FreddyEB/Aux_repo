@@ -7,8 +7,12 @@ class User < ApplicationRecord
     validates :password, presence: { message: "You have to fill in your password!" }, length: { minimum: 6, message: "Password must be at least 6 characters long" }
 
     before_validation :downcase_email
+    before_validation :normalize_name
     private
         def downcase_email
             self.email = email.downcase
+        end
+        def normalize_name
+            self.name = name.downcase.titleize
         end
 end

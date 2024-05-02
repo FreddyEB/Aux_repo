@@ -9,6 +9,11 @@
 #   end
 
 # 3boards, c/u con 4 states y al menos 5 tasks, y 3 users
+User.delete_all
+Board.delete_all
+Task.delete_all
+State.delete_all
+
 fb = User.create(
     name: 'Freddy Bacigalupo',
     email: 'fbc@example.com',
