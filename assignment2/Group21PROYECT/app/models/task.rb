@@ -7,7 +7,7 @@ class Task < ApplicationRecord
     validates :priority, presence:{ message: "Your board needs a priority level"}
     validates :user_id, presence:{ message: "Your board needs an associated User"}
     validates :state_id, presence:{ message: "Your board needs to be associated to a State"}
-    validates :assignee_task_id, presence:{ message: "Your board needs an Assignee Id"}
+    validates :asignee_task_id, presence:{ message: "Your board needs an Assignee Id"}
 
     before_validation :normalize_title
     private

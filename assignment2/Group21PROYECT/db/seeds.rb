@@ -44,6 +44,11 @@ b3 = Board.create(
     description: 'This board will be used for at home tasks',
 )
 
+b4 = Board.create(
+    title: 'My fourth board',
+    description: 'This board will be used for...',
+)
+
 b1.users << cb
 b1.users << fb
 b1.users << gb
@@ -52,6 +57,11 @@ b2.users << cb
 b2.users << fb
 
 b1.users << fb
+
+b4.users << cb
+b4.users << fb
+b4.users << gb
+
 
 st1 = State.create(name: 'Not started', board_id: 1)
 st2 = State.create(name: 'Early stages', board_id: 1)

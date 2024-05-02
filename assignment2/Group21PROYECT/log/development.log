@@ -2426,3 +2426,1496 @@ Processing by BoardsController#index as HTML
 Completed 200 OK in 18ms (Views: 10.4ms | ActiveRecord: 6.2ms | Allocations: 1861)
 
 
+Started GET "/" for 127.0.0.1 at 2024-05-02 09:31:41 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#Home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/Home.html.erb within layouts/application
+  [1m[36mBoard Load (1.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards" ORDER BY "boards"."created_at" DESC LIMIT $1[0m  [["LIMIT", 3]]
+  ↳ app/views/static_pages/Home.html.erb:8
+  Rendered static_pages/Home.html.erb within layouts/application (Duration: 17.7ms | Allocations: 10703)
+  Rendered layout layouts/application.html.erb (Duration: 25.4ms | Allocations: 13156)
+Completed 200 OK in 109ms (Views: 25.7ms | ActiveRecord: 16.5ms | Allocations: 28543)
+
+
+Started GET "/boards/2" for 127.0.0.1 at 2024-05-02 09:31:47 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:8:in `show'
+  [1m[36mState Load (0.5ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering boards/show.html.erb within layouts/application
+  [1m[36mState Load (0.5ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."board_id" = $1[0m  [["board_id", 2]]
+  ↳ app/views/boards/show.html.erb:6
+  [1m[36mTask Load (1.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 5]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 6]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 7]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 8]]
+  ↳ app/views/boards/show.html.erb:11
+  Rendered boards/show.html.erb within layouts/application (Duration: 24.7ms | Allocations: 15582)
+  Rendered layout layouts/application.html.erb (Duration: 26.3ms | Allocations: 16323)
+Completed 200 OK in 73ms (Views: 24.1ms | ActiveRecord: 10.0ms | Allocations: 28524)
+
+
+Started GET "/boards" for 127.0.0.1 at 2024-05-02 09:31:48 -0400
+Processing by BoardsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering boards/index.html.erb within layouts/application
+  [1m[36mBoard Load (0.6ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  ↳ app/views/boards/index.html.erb:14
+  Rendered boards/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 824)
+  Rendered layout layouts/application.html.erb (Duration: 3.3ms | Allocations: 1560)
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 0.5ms | Allocations: 1873)
+
+
+Started GET "/boards/1" for 127.0.0.1 at 2024-05-02 09:31:51 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:8:in `show'
+  [1m[36mState Load (0.2ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering boards/show.html.erb within layouts/application
+  [1m[36mState Load (0.2ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."board_id" = $1[0m  [["board_id", 1]]
+  ↳ app/views/boards/show.html.erb:6
+  [1m[36mTask Load (0.7ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 1]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 2]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 3]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 4]]
+  ↳ app/views/boards/show.html.erb:11
+  Rendered boards/show.html.erb within layouts/application (Duration: 4.9ms | Allocations: 3115)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 3844)
+Completed 200 OK in 9ms (Views: 5.0ms | ActiveRecord: 1.9ms | Allocations: 4985)
+
+
+Started GET "/boards/1" for 127.0.0.1 at 2024-05-02 09:31:51 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:8:in `show'
+  [1m[36mState Load (0.1ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering boards/show.html.erb within layouts/application
+  [1m[36mState Load (0.2ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."board_id" = $1[0m  [["board_id", 1]]
+  ↳ app/views/boards/show.html.erb:6
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 1]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 2]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 3]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 4]]
+  ↳ app/views/boards/show.html.erb:11
+  Rendered boards/show.html.erb within layouts/application (Duration: 5.8ms | Allocations: 3115)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 3832)
+Completed 200 OK in 9ms (Views: 6.1ms | ActiveRecord: 1.4ms | Allocations: 4960)
+
+
+Started GET "/boards" for 127.0.0.1 at 2024-05-02 09:31:55 -0400
+Processing by BoardsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering boards/index.html.erb within layouts/application
+  [1m[36mBoard Load (1.5ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  ↳ app/views/boards/index.html.erb:14
+  Rendered boards/index.html.erb within layouts/application (Duration: 6.9ms | Allocations: 577)
+  Rendered layout layouts/application.html.erb (Duration: 12.3ms | Allocations: 1289)
+Completed 200 OK in 16ms (Views: 12.0ms | ActiveRecord: 1.5ms | Allocations: 1532)
+
+
+Started GET "/boards/2" for 127.0.0.1 at 2024-05-02 09:31:56 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mBoard Load (0.9ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:8:in `show'
+  [1m[36mState Load (0.3ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering boards/show.html.erb within layouts/application
+  [1m[36mState Load (0.3ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."board_id" = $1[0m  [["board_id", 2]]
+  ↳ app/views/boards/show.html.erb:6
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 5]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 6]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 7]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 8]]
+  ↳ app/views/boards/show.html.erb:11
+  Rendered boards/show.html.erb within layouts/application (Duration: 5.5ms | Allocations: 3142)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 3862)
+Completed 200 OK in 12ms (Views: 6.2ms | ActiveRecord: 2.0ms | Allocations: 4990)
+
+
+Started GET "/boards" for 127.0.0.1 at 2024-05-02 09:31:57 -0400
+Processing by BoardsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering boards/index.html.erb within layouts/application
+  [1m[36mBoard Load (8.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  ↳ app/views/boards/index.html.erb:14
+  Rendered boards/index.html.erb within layouts/application (Duration: 18.2ms | Allocations: 583)
+  Rendered layout layouts/application.html.erb (Duration: 22.1ms | Allocations: 1325)
+Completed 200 OK in 30ms (Views: 18.1ms | ActiveRecord: 8.2ms | Allocations: 1574)
+
+
+Started GET "/Home" for 127.0.0.1 at 2024-05-02 09:31:58 -0400
+Processing by StaticPagesController#Home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/Home.html.erb within layouts/application
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards" ORDER BY "boards"."created_at" DESC LIMIT $1[0m  [["LIMIT", 3]]
+  ↳ app/views/static_pages/Home.html.erb:8
+  Rendered static_pages/Home.html.erb within layouts/application (Duration: 1.8ms | Allocations: 608)
+  Rendered layout layouts/application.html.erb (Duration: 2.6ms | Allocations: 1335)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.4ms | Allocations: 1607)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-02 09:32:02 -0400
+Processing by StaticPagesController#Home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/Home.html.erb within layouts/application
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" ORDER BY "boards"."created_at" DESC LIMIT $1[0m  [["LIMIT", 3]]
+  ↳ app/views/static_pages/Home.html.erb:8
+  Rendered static_pages/Home.html.erb within layouts/application (Duration: 1.5ms | Allocations: 608)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | Allocations: 1335)
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.3ms | Allocations: 1607)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-02 10:26:28 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#Home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/Home.html.erb within layouts/application
+  [1m[36mBoard Load (1.6ms)[0m  [1m[34mSELECT "boards".* FROM "boards" ORDER BY "boards"."created_at" DESC LIMIT $1[0m  [["LIMIT", 3]]
+  ↳ app/views/static_pages/Home.html.erb:8
+  Rendered static_pages/Home.html.erb within layouts/application (Duration: 15.6ms | Allocations: 10703)
+  Rendered layout layouts/application.html.erb (Duration: 24.7ms | Allocations: 13159)
+Completed 200 OK in 94ms (Views: 23.0ms | ActiveRecord: 20.6ms | Allocations: 28546)
+
+
+Started GET "/boards" for 127.0.0.1 at 2024-05-02 10:26:34 -0400
+Processing by BoardsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering boards/index.html.erb within layouts/application
+  [1m[36mBoard Load (0.9ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  ↳ app/views/boards/index.html.erb:14
+  Rendered boards/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 831)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 1588)
+Completed 200 OK in 6ms (Views: 4.2ms | ActiveRecord: 0.9ms | Allocations: 2047)
+
+
+Started GET "/boards/3" for 127.0.0.1 at 2024-05-02 10:26:36 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:8:in `show'
+  [1m[36mState Load (0.6ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering boards/show.html.erb within layouts/application
+  [1m[36mState Load (0.6ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."board_id" = $1[0m  [["board_id", 3]]
+  ↳ app/views/boards/show.html.erb:6
+  [1m[36mTask Load (1.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 9]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 10]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 11]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 12]]
+  ↳ app/views/boards/show.html.erb:11
+  Rendered boards/show.html.erb within layouts/application (Duration: 22.8ms | Allocations: 15520)
+  Rendered layout layouts/application.html.erb (Duration: 23.6ms | Allocations: 16246)
+Completed 200 OK in 58ms (Views: 20.2ms | ActiveRecord: 10.6ms | Allocations: 28356)
+
+
+Started GET "/boards/2" for 127.0.0.1 at 2024-05-02 10:26:36 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:8:in `show'
+  [1m[36mState Load (0.1ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering boards/show.html.erb within layouts/application
+  [1m[36mState Load (0.1ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."board_id" = $1[0m  [["board_id", 2]]
+  ↳ app/views/boards/show.html.erb:6
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 5]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 6]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 7]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 8]]
+  ↳ app/views/boards/show.html.erb:11
+  Rendered boards/show.html.erb within layouts/application (Duration: 4.7ms | Allocations: 3142)
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | Allocations: 3877)
+Completed 200 OK in 7ms (Views: 5.1ms | ActiveRecord: 1.0ms | Allocations: 5007)
+
+
+Started GET "/boards" for 127.0.0.1 at 2024-05-02 10:26:42 -0400
+Processing by BoardsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering boards/index.html.erb within layouts/application
+  [1m[36mBoard Load (0.5ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  ↳ app/views/boards/index.html.erb:14
+  Rendered boards/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 583)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | Allocations: 1322)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.5ms | Allocations: 1571)
+
+
+Started GET "/boards/3" for 127.0.0.1 at 2024-05-02 10:26:43 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:8:in `show'
+  [1m[36mState Load (0.1ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering boards/show.html.erb within layouts/application
+  [1m[36mState Load (0.2ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."board_id" = $1[0m  [["board_id", 3]]
+  ↳ app/views/boards/show.html.erb:6
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 9]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 10]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 11]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 12]]
+  ↳ app/views/boards/show.html.erb:11
+  Rendered boards/show.html.erb within layouts/application (Duration: 4.6ms | Allocations: 3086)
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 3815)
+Completed 200 OK in 7ms (Views: 4.7ms | ActiveRecord: 1.1ms | Allocations: 4955)
+
+
+Started GET "/boards" for 127.0.0.1 at 2024-05-02 10:26:59 -0400
+Processing by BoardsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering boards/index.html.erb within layouts/application
+  [1m[36mBoard Load (5.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  ↳ app/views/boards/index.html.erb:14
+  Rendered boards/index.html.erb within layouts/application (Duration: 15.5ms | Allocations: 577)
+  Rendered layout layouts/application.html.erb (Duration: 30.5ms | Allocations: 1292)
+Completed 200 OK in 39ms (Views: 30.2ms | ActiveRecord: 5.1ms | Allocations: 1535)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-02 10:27:00 -0400
+Processing by StaticPagesController#Home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/Home.html.erb within layouts/application
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" ORDER BY "boards"."created_at" DESC LIMIT $1[0m  [["LIMIT", 3]]
+  ↳ app/views/static_pages/Home.html.erb:8
+  Rendered static_pages/Home.html.erb within layouts/application (Duration: 1.6ms | Allocations: 608)
+  Rendered layout layouts/application.html.erb (Duration: 2.7ms | Allocations: 1338)
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.3ms | Allocations: 1610)
+
+
+Started GET "/boards/3" for 127.0.0.1 at 2024-05-02 10:27:03 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:8:in `show'
+  [1m[36mState Load (0.2ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering boards/show.html.erb within layouts/application
+  [1m[36mState Load (0.2ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."board_id" = $1[0m  [["board_id", 3]]
+  ↳ app/views/boards/show.html.erb:6
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 9]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 10]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 11]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 12]]
+  ↳ app/views/boards/show.html.erb:11
+  Rendered boards/show.html.erb within layouts/application (Duration: 5.3ms | Allocations: 3086)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 3815)
+Completed 200 OK in 9ms (Views: 5.8ms | ActiveRecord: 1.3ms | Allocations: 4942)
+
+
+Started GET "/boards" for 127.0.0.1 at 2024-05-02 10:27:09 -0400
+Processing by BoardsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering boards/index.html.erb within layouts/application
+  [1m[36mBoard Load (1.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  ↳ app/views/boards/index.html.erb:14
+  Rendered boards/index.html.erb within layouts/application (Duration: 5.8ms | Allocations: 577)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 1301)
+Completed 200 OK in 11ms (Views: 8.0ms | ActiveRecord: 1.4ms | Allocations: 1545)
+
+
+Started GET "/boards" for 127.0.0.1 at 2024-05-02 10:27:12 -0400
+Processing by BoardsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering boards/index.html.erb within layouts/application
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  ↳ app/views/boards/index.html.erb:14
+  Rendered boards/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 577)
+  Rendered layout layouts/application.html.erb (Duration: 2.1ms | Allocations: 1307)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.4ms | Allocations: 1550)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-02 10:27:16 -0400
+Processing by StaticPagesController#Home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/Home.html.erb within layouts/application
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" ORDER BY "boards"."created_at" DESC LIMIT $1[0m  [["LIMIT", 3]]
+  ↳ app/views/static_pages/Home.html.erb:8
+  Rendered static_pages/Home.html.erb within layouts/application (Duration: 1.7ms | Allocations: 608)
+  Rendered layout layouts/application.html.erb (Duration: 2.7ms | Allocations: 1338)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.3ms | Allocations: 1610)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-02 10:27:19 -0400
+Processing by StaticPagesController#Home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/Home.html.erb within layouts/application
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" ORDER BY "boards"."created_at" DESC LIMIT $1[0m  [["LIMIT", 3]]
+  ↳ app/views/static_pages/Home.html.erb:8
+  Rendered static_pages/Home.html.erb within layouts/application (Duration: 1.7ms | Allocations: 608)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | Allocations: 1341)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.3ms | Allocations: 1613)
+
+
+Started GET "/boards/1" for 127.0.0.1 at 2024-05-02 10:27:21 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:8:in `show'
+  [1m[36mState Load (0.2ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering boards/show.html.erb within layouts/application
+  [1m[36mState Load (0.2ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."board_id" = $1[0m  [["board_id", 1]]
+  ↳ app/views/boards/show.html.erb:6
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 1]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 2]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 3]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 4]]
+  ↳ app/views/boards/show.html.erb:11
+  Rendered boards/show.html.erb within layouts/application (Duration: 7.4ms | Allocations: 3115)
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | Allocations: 3832)
+Completed 200 OK in 12ms (Views: 7.4ms | ActiveRecord: 1.8ms | Allocations: 4959)
+
+
+Started GET "/boards" for 127.0.0.1 at 2024-05-02 10:27:25 -0400
+Processing by BoardsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering boards/index.html.erb within layouts/application
+  [1m[36mBoard Load (0.8ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  ↳ app/views/boards/index.html.erb:14
+  Rendered boards/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 577)
+  Rendered layout layouts/application.html.erb (Duration: 3.2ms | Allocations: 1310)
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.8ms | Allocations: 1555)
+
+
+Started GET "/Home" for 127.0.0.1 at 2024-05-02 10:27:34 -0400
+Processing by StaticPagesController#Home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/Home.html.erb within layouts/application
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" ORDER BY "boards"."created_at" DESC LIMIT $1[0m  [["LIMIT", 3]]
+  ↳ app/views/static_pages/Home.html.erb:8
+  Rendered static_pages/Home.html.erb within layouts/application (Duration: 1.6ms | Allocations: 608)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | Allocations: 1335)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.3ms | Allocations: 1608)
+
+
+Started GET "/Home" for 127.0.0.1 at 2024-05-02 10:27:34 -0400
+Processing by StaticPagesController#Home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/Home.html.erb within layouts/application
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards" ORDER BY "boards"."created_at" DESC LIMIT $1[0m  [["LIMIT", 3]]
+  ↳ app/views/static_pages/Home.html.erb:8
+  Rendered static_pages/Home.html.erb within layouts/application (Duration: 1.3ms | Allocations: 608)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | Allocations: 1335)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.4ms | Allocations: 1607)
+
+
+Started GET "/Home" for 127.0.0.1 at 2024-05-02 10:27:35 -0400
+Processing by StaticPagesController#Home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/Home.html.erb within layouts/application
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards" ORDER BY "boards"."created_at" DESC LIMIT $1[0m  [["LIMIT", 3]]
+  ↳ app/views/static_pages/Home.html.erb:8
+  Rendered static_pages/Home.html.erb within layouts/application (Duration: 1.7ms | Allocations: 608)
+  Rendered layout layouts/application.html.erb (Duration: 2.6ms | Allocations: 1338)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.4ms | Allocations: 1611)
+
+
+Started GET "/Home" for 127.0.0.1 at 2024-05-02 10:27:35 -0400
+Processing by StaticPagesController#Home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/Home.html.erb within layouts/application
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" ORDER BY "boards"."created_at" DESC LIMIT $1[0m  [["LIMIT", 3]]
+  ↳ app/views/static_pages/Home.html.erb:8
+  Rendered static_pages/Home.html.erb within layouts/application (Duration: 1.3ms | Allocations: 608)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | Allocations: 1335)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.3ms | Allocations: 1607)
+
+
+Started GET "/boards/2" for 127.0.0.1 at 2024-05-02 10:27:44 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mBoard Load (0.5ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:8:in `show'
+  [1m[36mState Load (0.2ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering boards/show.html.erb within layouts/application
+  [1m[36mState Load (0.2ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."board_id" = $1[0m  [["board_id", 2]]
+  ↳ app/views/boards/show.html.erb:6
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 5]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 6]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 7]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 8]]
+  ↳ app/views/boards/show.html.erb:11
+  Rendered boards/show.html.erb within layouts/application (Duration: 6.5ms | Allocations: 3142)
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 3865)
+Completed 200 OK in 16ms (Views: 8.9ms | ActiveRecord: 1.4ms | Allocations: 4993)
+
+
+Started GET "/boards" for 127.0.0.1 at 2024-05-02 10:27:47 -0400
+Processing by BoardsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering boards/index.html.erb within layouts/application
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  ↳ app/views/boards/index.html.erb:14
+  Rendered boards/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 577)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | Allocations: 1310)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.4ms | Allocations: 1553)
+
+
+Started GET "/Home" for 127.0.0.1 at 2024-05-02 10:27:49 -0400
+Processing by StaticPagesController#Home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/Home.html.erb within layouts/application
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards" ORDER BY "boards"."created_at" DESC LIMIT $1[0m  [["LIMIT", 3]]
+  ↳ app/views/static_pages/Home.html.erb:8
+  Rendered static_pages/Home.html.erb within layouts/application (Duration: 1.8ms | Allocations: 608)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | Allocations: 1356)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.4ms | Allocations: 1628)
+
+
+Started GET "/boards/3" for 127.0.0.1 at 2024-05-02 10:28:04 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mBoard Load (0.9ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:8:in `show'
+  [1m[36mState Load (0.4ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering boards/show.html.erb within layouts/application
+  [1m[36mState Load (0.3ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."board_id" = $1[0m  [["board_id", 3]]
+  ↳ app/views/boards/show.html.erb:6
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 9]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 10]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 11]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 12]]
+  ↳ app/views/boards/show.html.erb:11
+  Rendered boards/show.html.erb within layouts/application (Duration: 6.0ms | Allocations: 3086)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 3833)
+Completed 200 OK in 18ms (Views: 8.1ms | ActiveRecord: 1.9ms | Allocations: 4961)
+
+
+Started GET "/boards" for 127.0.0.1 at 2024-05-02 10:28:09 -0400
+Processing by BoardsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering boards/index.html.erb within layouts/application
+  [1m[36mBoard Load (0.6ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  ↳ app/views/boards/index.html.erb:14
+  Rendered boards/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 577)
+  Rendered layout layouts/application.html.erb (Duration: 2.8ms | Allocations: 1307)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.6ms | Allocations: 1550)
+
+
+Started GET "/boards" for 127.0.0.1 at 2024-05-02 10:28:11 -0400
+Processing by BoardsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering boards/index.html.erb within layouts/application
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  ↳ app/views/boards/index.html.erb:14
+  Rendered boards/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 577)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | Allocations: 1301)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.4ms | Allocations: 1544)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-02 10:28:12 -0400
+Processing by StaticPagesController#Home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/Home.html.erb within layouts/application
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" ORDER BY "boards"."created_at" DESC LIMIT $1[0m  [["LIMIT", 3]]
+  ↳ app/views/static_pages/Home.html.erb:8
+  Rendered static_pages/Home.html.erb within layouts/application (Duration: 1.6ms | Allocations: 608)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | Allocations: 1338)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.3ms | Allocations: 1610)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-02 10:28:19 -0400
+Processing by StaticPagesController#Home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/Home.html.erb within layouts/application
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" ORDER BY "boards"."created_at" DESC LIMIT $1[0m  [["LIMIT", 3]]
+  ↳ app/views/static_pages/Home.html.erb:8
+  Rendered static_pages/Home.html.erb within layouts/application (Duration: 1.7ms | Allocations: 608)
+  Rendered layout layouts/application.html.erb (Duration: 3.2ms | Allocations: 1329)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.3ms | Allocations: 1601)
+
+
+Started GET "/boards/2" for 127.0.0.1 at 2024-05-02 10:28:23 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:8:in `show'
+  [1m[36mState Load (0.2ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering boards/show.html.erb within layouts/application
+  [1m[36mState Load (0.2ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."board_id" = $1[0m  [["board_id", 2]]
+  ↳ app/views/boards/show.html.erb:6
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 5]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 6]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 7]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 8]]
+  ↳ app/views/boards/show.html.erb:11
+  Rendered boards/show.html.erb within layouts/application (Duration: 5.3ms | Allocations: 3142)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 3871)
+Completed 200 OK in 9ms (Views: 5.8ms | ActiveRecord: 1.0ms | Allocations: 4998)
+
+
+Started GET "/boards" for 127.0.0.1 at 2024-05-02 10:28:28 -0400
+Processing by BoardsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering boards/index.html.erb within layouts/application
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  ↳ app/views/boards/index.html.erb:14
+  Rendered boards/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 577)
+  Rendered layout layouts/application.html.erb (Duration: 3.5ms | Allocations: 1295)
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.4ms | Allocations: 1538)
+
+
+Started GET "/boards" for 127.0.0.1 at 2024-05-02 10:28:30 -0400
+Processing by BoardsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering boards/index.html.erb within layouts/application
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  ↳ app/views/boards/index.html.erb:14
+  Rendered boards/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 577)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | Allocations: 1307)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.4ms | Allocations: 1550)
+
+
+Started GET "/boards" for 127.0.0.1 at 2024-05-02 10:28:32 -0400
+Processing by BoardsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering boards/index.html.erb within layouts/application
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  ↳ app/views/boards/index.html.erb:14
+  Rendered boards/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 577)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | Allocations: 1313)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.4ms | Allocations: 1556)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (66.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "group_21_proyect_development"[0m
+  [1m[35m (31.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "group_21_proyect_test"[0m
+  [1m[35m (167.5ms)[0m  [1m[35mCREATE DATABASE "group_21_proyect_development" ENCODING = 'unicode'[0m
+  [1m[35m (74.1ms)[0m  [1m[35mCREATE DATABASE "group_21_proyect_test" ENCODING = 'unicode'[0m
+  [1m[35m (8.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5652297779640864450)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-05-02 14:30:31.768268', '2024-05-02 14:30:31.768270') RETURNING "key"[0m
+Migrating to AddTableUsers (20240429213557)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying DEFAULT '' NOT NULL, "email" character varying DEFAULT '' NOT NULL, "password" character varying NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240429213557') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddTableBoards (20240429213604)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "boards" ("id" bigserial primary key, "title" character varying DEFAULT '' NOT NULL, "description" text DEFAULT '' NOT NULL, "user_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE INDEX "index_boards_on_user_id" ON "boards" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240429213604') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddTableTasks (20240429213612)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "tasks" ("id" bigserial primary key, "title" character varying DEFAULT '' NOT NULL, "description" text DEFAULT '' NOT NULL, "priority" character varying DEFAULT '' NOT NULL, "custom_attributes" character varying DEFAULT '' NOT NULL, "status" character varying DEFAULT '' NOT NULL, "user_id" bigint, "asignee_task_id" bigint, "state_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "index_tasks_on_user_id" ON "tasks" ("user_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE INDEX "index_tasks_on_asignee_task_id" ON "tasks" ("asignee_task_id")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE INDEX "index_tasks_on_state_id" ON "tasks" ("state_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240429213612') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to UsersToBoards (20240429213630)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.0ms)[0m  [1m[35mCREATE TABLE "user_to_boards" ("id" bigserial primary key, "user_id" bigint, "board_id" bigint)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE INDEX "index_user_to_boards_on_user_id" ON "user_to_boards" ("user_id")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE INDEX "index_user_to_boards_on_board_id" ON "user_to_boards" ("board_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240429213630') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddTableStates (20240429222854)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "states" ("id" bigserial primary key, "name" character varying DEFAULT '' NOT NULL, "board_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE INDEX "index_states_on_board_id" ON "states" ("board_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240429222854') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddTableAsigneeTasks (20240502001555)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "asignee_tasks" ("id" bigserial primary key, "user_id" bigint)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE INDEX "index_asignee_tasks_on_user_id" ON "asignee_tasks" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240502001555') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(5652297779640864450)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Delete All (0.9ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mBoard Delete All (0.6ms)[0m  [1m[31mDELETE FROM "boards"[0m
+  [1m[36mTask Delete All (0.5ms)[0m  [1m[31mDELETE FROM "tasks"[0m
+  [1m[36mState Delete All (0.6ms)[0m  [1m[31mDELETE FROM "states"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "fbc@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Freddy Bacigalupo"], ["email", "fbc@example.com"], ["password", "[FILTERED]"], ["created_at", "2024-05-02 14:30:35.779112"], ["updated_at", "2024-05-02 14:30:35.779112"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "gbr@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Gianfranco Bobadilla"], ["email", "gbr@example.com"], ["password", "[FILTERED]"], ["created_at", "2024-05-02 14:30:35.784464"], ["updated_at", "2024-05-02 14:30:35.784464"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cbb@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Clemente Barros"], ["email", "cbb@example.com"], ["password", "[FILTERED]"], ["created_at", "2024-05-02 14:30:35.788445"], ["updated_at", "2024-05-02 14:30:35.788445"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Create (17.4ms)[0m  [1m[32mINSERT INTO "boards" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "My First Board"], ["description", "This board will be used for college assignments"], ["user_id", nil], ["created_at", "2024-05-02 14:30:35.803460"], ["updated_at", "2024-05-02 14:30:35.803460"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Create (0.9ms)[0m  [1m[32mINSERT INTO "boards" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "My Second Board"], ["description", "This board will be used for work assignments"], ["user_id", nil], ["created_at", "2024-05-02 14:30:35.823765"], ["updated_at", "2024-05-02 14:30:35.823765"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Create (0.7ms)[0m  [1m[32mINSERT INTO "boards" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "My Third Board"], ["description", "This board will be used for at home tasks"], ["user_id", nil], ["created_at", "2024-05-02 14:30:35.826473"], ["updated_at", "2024-05-02 14:30:35.826473"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Create (1.1ms)[0m  [1m[32mINSERT INTO "boards" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "My Fourth Board"], ["description", "This board will be used for..."], ["user_id", nil], ["created_at", "2024-05-02 14:30:35.828512"], ["updated_at", "2024-05-02 14:30:35.828512"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserToBoard Create (1.1ms)[0m  [1m[32mINSERT INTO "user_to_boards" ("user_id", "board_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 3], ["board_id", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserToBoard Create (0.8ms)[0m  [1m[32mINSERT INTO "user_to_boards" ("user_id", "board_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 1], ["board_id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserToBoard Create (0.9ms)[0m  [1m[32mINSERT INTO "user_to_boards" ("user_id", "board_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 2], ["board_id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserToBoard Create (0.9ms)[0m  [1m[32mINSERT INTO "user_to_boards" ("user_id", "board_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 3], ["board_id", 2]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserToBoard Create (1.0ms)[0m  [1m[32mINSERT INTO "user_to_boards" ("user_id", "board_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 1], ["board_id", 2]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserToBoard Create (1.2ms)[0m  [1m[32mINSERT INTO "user_to_boards" ("user_id", "board_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 1], ["board_id", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserToBoard Create (0.8ms)[0m  [1m[32mINSERT INTO "user_to_boards" ("user_id", "board_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 3], ["board_id", 4]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserToBoard Create (0.8ms)[0m  [1m[32mINSERT INTO "user_to_boards" ("user_id", "board_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 1], ["board_id", 4]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserToBoard Create (0.8ms)[0m  [1m[32mINSERT INTO "user_to_boards" ("user_id", "board_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 2], ["board_id", 4]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mState Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "states" WHERE "states"."name" = $1 LIMIT $2[0m  [["name", "Not Started"], ["LIMIT", 1]]
+  [1m[36mState Create (0.8ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Not Started"], ["board_id", 1], ["created_at", "2024-05-02 14:30:35.874225"], ["updated_at", "2024-05-02 14:30:35.874225"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mState Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "states" WHERE "states"."name" = $1 LIMIT $2[0m  [["name", "Early Stages"], ["LIMIT", 1]]
+  [1m[36mState Create (0.2ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Early Stages"], ["board_id", 1], ["created_at", "2024-05-02 14:30:35.879018"], ["updated_at", "2024-05-02 14:30:35.879018"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mState Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "states" WHERE "states"."name" = $1 LIMIT $2[0m  [["name", "In Progress"], ["LIMIT", 1]]
+  [1m[36mState Create (0.2ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "In Progress"], ["board_id", 1], ["created_at", "2024-05-02 14:30:35.883005"], ["updated_at", "2024-05-02 14:30:35.883005"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mState Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "states" WHERE "states"."name" = $1 LIMIT $2[0m  [["name", "Finished"], ["LIMIT", 1]]
+  [1m[36mState Create (0.4ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Finished"], ["board_id", 1], ["created_at", "2024-05-02 14:30:35.889293"], ["updated_at", "2024-05-02 14:30:35.889293"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mState Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "states" WHERE "states"."name" = $1 LIMIT $2[0m  [["name", "Not Started Yet"], ["LIMIT", 1]]
+  [1m[36mState Create (0.2ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Not Started Yet"], ["board_id", 2], ["created_at", "2024-05-02 14:30:35.894151"], ["updated_at", "2024-05-02 14:30:35.894151"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Load (0.1ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mState Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "states" WHERE "states"."name" = $1 LIMIT $2[0m  [["name", "Early Stages 2"], ["LIMIT", 1]]
+  [1m[36mState Create (0.2ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Early Stages 2"], ["board_id", 2], ["created_at", "2024-05-02 14:30:35.899651"], ["updated_at", "2024-05-02 14:30:35.899651"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Load (0.1ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mState Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "states" WHERE "states"."name" = $1 LIMIT $2[0m  [["name", "In Progress 2"], ["LIMIT", 1]]
+  [1m[36mState Create (0.2ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "In Progress 2"], ["board_id", 2], ["created_at", "2024-05-02 14:30:35.903518"], ["updated_at", "2024-05-02 14:30:35.903518"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Load (0.1ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mState Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "states" WHERE "states"."name" = $1 LIMIT $2[0m  [["name", "Finished 2"], ["LIMIT", 1]]
+  [1m[36mState Create (0.2ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Finished 2"], ["board_id", 2], ["created_at", "2024-05-02 14:30:35.907418"], ["updated_at", "2024-05-02 14:30:35.907418"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Load (0.1ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mState Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "states" WHERE "states"."name" = $1 LIMIT $2[0m  [["name", "Not Started 3"], ["LIMIT", 1]]
+  [1m[36mState Create (0.2ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Not Started 3"], ["board_id", 3], ["created_at", "2024-05-02 14:30:35.911444"], ["updated_at", "2024-05-02 14:30:35.911444"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Load (0.1ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mState Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "states" WHERE "states"."name" = $1 LIMIT $2[0m  [["name", "Early Stages 3"], ["LIMIT", 1]]
+  [1m[36mState Create (0.2ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Early Stages 3"], ["board_id", 3], ["created_at", "2024-05-02 14:30:35.915395"], ["updated_at", "2024-05-02 14:30:35.915395"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Load (0.1ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mState Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "states" WHERE "states"."name" = $1 LIMIT $2[0m  [["name", "In Progress 3"], ["LIMIT", 1]]
+  [1m[36mState Create (0.2ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "In Progress 3"], ["board_id", 3], ["created_at", "2024-05-02 14:30:35.919254"], ["updated_at", "2024-05-02 14:30:35.919254"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Load (0.1ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mState Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "states" WHERE "states"."name" = $1 LIMIT $2[0m  [["name", "Finished 3"], ["LIMIT", 1]]
+  [1m[36mState Create (0.2ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Finished 3"], ["board_id", 3], ["created_at", "2024-05-02 14:30:35.923162"], ["updated_at", "2024-05-02 14:30:35.923162"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAsigneeTask Create (1.2ms)[0m  [1m[32mINSERT INTO "asignee_tasks" ("user_id") VALUES ($1) RETURNING "id"[0m  [["user_id", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAsigneeTask Create (0.2ms)[0m  [1m[32mINSERT INTO "asignee_tasks" ("user_id") VALUES ($1) RETURNING "id"[0m  [["user_id", 2]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mAsigneeTask Create (0.2ms)[0m  [1m[32mINSERT INTO "asignee_tasks" ("user_id") VALUES ($1) RETURNING "id"[0m  [["user_id", 3]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (7.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mAsigneeTask Load (0.2ms)[0m  [1m[34mSELECT "asignee_tasks".* FROM "asignee_tasks" WHERE "asignee_tasks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mState Load (0.1ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."title" = $1 LIMIT $2[0m  [["title", "Avanzar En Web"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Delete All (2.4ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mBoard Delete All (0.9ms)[0m  [1m[31mDELETE FROM "boards"[0m
+  [1m[36mTask Delete All (1.0ms)[0m  [1m[31mDELETE FROM "tasks"[0m
+  [1m[36mState Delete All (0.9ms)[0m  [1m[31mDELETE FROM "states"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "fbc@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Freddy Bacigalupo"], ["email", "fbc@example.com"], ["password", "[FILTERED]"], ["created_at", "2024-05-02 14:31:55.854605"], ["updated_at", "2024-05-02 14:31:55.854605"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "gbr@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Gianfranco Bobadilla"], ["email", "gbr@example.com"], ["password", "[FILTERED]"], ["created_at", "2024-05-02 14:31:55.859339"], ["updated_at", "2024-05-02 14:31:55.859339"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cbb@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Clemente Barros"], ["email", "cbb@example.com"], ["password", "[FILTERED]"], ["created_at", "2024-05-02 14:31:55.863024"], ["updated_at", "2024-05-02 14:31:55.863024"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Create (20.4ms)[0m  [1m[32mINSERT INTO "boards" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "My First Board"], ["description", "This board will be used for college assignments"], ["user_id", nil], ["created_at", "2024-05-02 14:31:55.874729"], ["updated_at", "2024-05-02 14:31:55.874729"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Create (2.1ms)[0m  [1m[32mINSERT INTO "boards" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "My Second Board"], ["description", "This board will be used for work assignments"], ["user_id", nil], ["created_at", "2024-05-02 14:31:55.897994"], ["updated_at", "2024-05-02 14:31:55.897994"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Create (0.9ms)[0m  [1m[32mINSERT INTO "boards" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "My Third Board"], ["description", "This board will be used for at home tasks"], ["user_id", nil], ["created_at", "2024-05-02 14:31:55.902104"], ["updated_at", "2024-05-02 14:31:55.902104"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Create (1.0ms)[0m  [1m[32mINSERT INTO "boards" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "My Fourth Board"], ["description", "This board will be used for..."], ["user_id", nil], ["created_at", "2024-05-02 14:31:55.904392"], ["updated_at", "2024-05-02 14:31:55.904392"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserToBoard Create (0.8ms)[0m  [1m[32mINSERT INTO "user_to_boards" ("user_id", "board_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 6], ["board_id", 5]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserToBoard Create (0.8ms)[0m  [1m[32mINSERT INTO "user_to_boards" ("user_id", "board_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 4], ["board_id", 5]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserToBoard Create (0.9ms)[0m  [1m[32mINSERT INTO "user_to_boards" ("user_id", "board_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 5], ["board_id", 5]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserToBoard Create (1.1ms)[0m  [1m[32mINSERT INTO "user_to_boards" ("user_id", "board_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 6], ["board_id", 6]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserToBoard Create (1.0ms)[0m  [1m[32mINSERT INTO "user_to_boards" ("user_id", "board_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 4], ["board_id", 6]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserToBoard Create (1.2ms)[0m  [1m[32mINSERT INTO "user_to_boards" ("user_id", "board_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 4], ["board_id", 5]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserToBoard Create (0.8ms)[0m  [1m[32mINSERT INTO "user_to_boards" ("user_id", "board_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 6], ["board_id", 8]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserToBoard Create (0.9ms)[0m  [1m[32mINSERT INTO "user_to_boards" ("user_id", "board_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 4], ["board_id", 8]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserToBoard Create (0.8ms)[0m  [1m[32mINSERT INTO "user_to_boards" ("user_id", "board_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 5], ["board_id", 8]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mState Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "states" WHERE "states"."name" = $1 LIMIT $2[0m  [["name", "Not Started"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mState Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "states" WHERE "states"."name" = $1 LIMIT $2[0m  [["name", "Early Stages"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mState Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "states" WHERE "states"."name" = $1 LIMIT $2[0m  [["name", "In Progress"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mState Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "states" WHERE "states"."name" = $1 LIMIT $2[0m  [["name", "Finished"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mState Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "states" WHERE "states"."name" = $1 LIMIT $2[0m  [["name", "Not Started Yet"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mState Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "states" WHERE "states"."name" = $1 LIMIT $2[0m  [["name", "Early Stages 2"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Load (0.1ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mState Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "states" WHERE "states"."name" = $1 LIMIT $2[0m  [["name", "In Progress 2"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Load (0.1ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mState Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "states" WHERE "states"."name" = $1 LIMIT $2[0m  [["name", "Finished 2"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Load (0.1ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mState Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "states" WHERE "states"."name" = $1 LIMIT $2[0m  [["name", "Not Started 3"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Load (0.1ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mState Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "states" WHERE "states"."name" = $1 LIMIT $2[0m  [["name", "Early Stages 3"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Load (0.1ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mState Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "states" WHERE "states"."name" = $1 LIMIT $2[0m  [["name", "In Progress 3"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Load (0.1ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mState Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "states" WHERE "states"."name" = $1 LIMIT $2[0m  [["name", "Finished 3"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mAsigneeTask Load (0.8ms)[0m  [1m[34mSELECT "asignee_tasks".* FROM "asignee_tasks" WHERE "asignee_tasks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mState Load (0.2ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."title" = $1 LIMIT $2[0m  [["title", "Avanzar En Web"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAsigneeTask Load (0.2ms)[0m  [1m[34mSELECT "asignee_tasks".* FROM "asignee_tasks" WHERE "asignee_tasks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mState Load (0.2ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."title" = $1 LIMIT $2[0m  [["title", "Empezar Proyecto A01!"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAsigneeTask Load (0.2ms)[0m  [1m[34mSELECT "asignee_tasks".* FROM "asignee_tasks" WHERE "asignee_tasks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mState Load (0.2ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTask Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."title" = $1 LIMIT $2[0m  [["title", "Destruir Base De Datos De La Clase"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mAsigneeTask Load (0.2ms)[0m  [1m[34mSELECT "asignee_tasks".* FROM "asignee_tasks" WHERE "asignee_tasks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mState Load (0.2ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTask Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."title" = $1 LIMIT $2[0m  [["title", "Hacer Modelos Relacionales"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAsigneeTask Load (0.2ms)[0m  [1m[34mSELECT "asignee_tasks".* FROM "asignee_tasks" WHERE "asignee_tasks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mState Load (0.2ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTask Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."title" = $1 LIMIT $2[0m  [["title", "Contactar Al Profesor"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAsigneeTask Load (0.2ms)[0m  [1m[34mSELECT "asignee_tasks".* FROM "asignee_tasks" WHERE "asignee_tasks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mState Load (0.2ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTask Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."title" = $1 LIMIT $2[0m  [["title", "Contactar Al Ayudante"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAsigneeTask Load (0.1ms)[0m  [1m[34mSELECT "asignee_tasks".* FROM "asignee_tasks" WHERE "asignee_tasks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mState Load (0.1ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTask Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."title" = $1 LIMIT $2[0m  [["title", "Empezar Proyecto"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAsigneeTask Load (0.1ms)[0m  [1m[34mSELECT "asignee_tasks".* FROM "asignee_tasks" WHERE "asignee_tasks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mState Load (0.1ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTask Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."title" = $1 LIMIT $2[0m  [["title", "Crear Base De Datos"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mAsigneeTask Load (0.1ms)[0m  [1m[34mSELECT "asignee_tasks".* FROM "asignee_tasks" WHERE "asignee_tasks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mState Load (0.1ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTask Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."title" = $1 LIMIT $2[0m  [["title", "Reunión General"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAsigneeTask Load (0.1ms)[0m  [1m[34mSELECT "asignee_tasks".* FROM "asignee_tasks" WHERE "asignee_tasks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mState Load (0.1ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mTask Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."title" = $1 LIMIT $2[0m  [["title", "Probar Códigos"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAsigneeTask Load (0.1ms)[0m  [1m[34mSELECT "asignee_tasks".* FROM "asignee_tasks" WHERE "asignee_tasks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mState Load (0.1ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mTask Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."title" = $1 LIMIT $2[0m  [["title", "Capacitar A Los Nuevos"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mAsigneeTask Load (0.1ms)[0m  [1m[34mSELECT "asignee_tasks".* FROM "asignee_tasks" WHERE "asignee_tasks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mState Load (0.1ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTask Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."title" = $1 LIMIT $2[0m  [["title", "Retirar Paquetes"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mAsigneeTask Load (0.1ms)[0m  [1m[34mSELECT "asignee_tasks".* FROM "asignee_tasks" WHERE "asignee_tasks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mState Load (0.1ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mTask Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."title" = $1 LIMIT $2[0m  [["title", "Avanzar En Presentaciones"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mAsigneeTask Load (0.1ms)[0m  [1m[34mSELECT "asignee_tasks".* FROM "asignee_tasks" WHERE "asignee_tasks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mState Load (0.1ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTask Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."title" = $1 LIMIT $2[0m  [["title", "Secar Ropa"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAsigneeTask Load (0.1ms)[0m  [1m[34mSELECT "asignee_tasks".* FROM "asignee_tasks" WHERE "asignee_tasks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mState Load (0.1ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTask Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."title" = $1 LIMIT $2[0m  [["title", "Hacer Mi Almuerzo"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAsigneeTask Load (0.1ms)[0m  [1m[34mSELECT "asignee_tasks".* FROM "asignee_tasks" WHERE "asignee_tasks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mState Load (0.1ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTask Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."title" = $1 LIMIT $2[0m  [["title", "Ducharse"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAsigneeTask Load (0.1ms)[0m  [1m[34mSELECT "asignee_tasks".* FROM "asignee_tasks" WHERE "asignee_tasks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mState Load (0.1ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mTask Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."title" = $1 LIMIT $2[0m  [["title", "Lavarse Los Dientes"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAsigneeTask Load (0.2ms)[0m  [1m[34mSELECT "asignee_tasks".* FROM "asignee_tasks" WHERE "asignee_tasks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mState Load (0.1ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mTask Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."title" = $1 LIMIT $2[0m  [["title", "Pasear Al Perro"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+Started GET "/" for 127.0.0.1 at 2024-05-02 10:32:03 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#Home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/Home.html.erb within layouts/application
+  [1m[36mBoard Load (0.7ms)[0m  [1m[34mSELECT "boards".* FROM "boards" ORDER BY "boards"."created_at" DESC LIMIT $1[0m  [["LIMIT", 3]]
+  ↳ app/views/static_pages/Home.html.erb:8
+  Rendered static_pages/Home.html.erb within layouts/application (Duration: 19.2ms | Allocations: 10703)
+  Rendered layout layouts/application.html.erb (Duration: 29.0ms | Allocations: 13174)
+Completed 200 OK in 91ms (Views: 27.4ms | ActiveRecord: 15.2ms | Allocations: 28570)
+
+
+Started GET "/boards/7" for 127.0.0.1 at 2024-05-02 10:32:04 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:8:in `show'
+  [1m[36mState Load (0.4ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:9:in `show'
+Completed 404 Not Found in 11ms (ActiveRecord: 3.4ms | Allocations: 4981)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find State with 'id'=7):
+  
+app/controllers/boards_controller.rb:9:in `show'
+Started GET "/boards" for 127.0.0.1 at 2024-05-02 10:32:09 -0400
+Processing by BoardsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering boards/index.html.erb within layouts/application
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  ↳ app/views/boards/index.html.erb:14
+  Rendered boards/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 872)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | Allocations: 1609)
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.4ms | Allocations: 2045)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-02 10:32:14 -0400
+Processing by StaticPagesController#Home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/Home.html.erb within layouts/application
+  [1m[36mBoard Load (0.5ms)[0m  [1m[34mSELECT "boards".* FROM "boards" ORDER BY "boards"."created_at" DESC LIMIT $1[0m  [["LIMIT", 3]]
+  ↳ app/views/static_pages/Home.html.erb:8
+  Rendered static_pages/Home.html.erb within layouts/application (Duration: 2.6ms | Allocations: 613)
+  Rendered layout layouts/application.html.erb (Duration: 4.1ms | Allocations: 1349)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.4ms | Allocations: 1629)
+
+
+Started GET "/boards/8" for 127.0.0.1 at 2024-05-02 10:32:15 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:8:in `show'
+  [1m[36mState Load (0.1ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:9:in `show'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.4ms | Allocations: 1301)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find State with 'id'=8):
+  
+app/controllers/boards_controller.rb:9:in `show'
+Started GET "/boards" for 127.0.0.1 at 2024-05-02 10:32:26 -0400
+Processing by BoardsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering boards/index.html.erb within layouts/application
+  [1m[36mBoard Load (0.9ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  ↳ app/views/boards/index.html.erb:14
+  Rendered boards/index.html.erb within layouts/application (Duration: 4.5ms | Allocations: 618)
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | Allocations: 1360)
+Completed 200 OK in 16ms (Views: 13.7ms | ActiveRecord: 0.9ms | Allocations: 1601)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (119.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "group_21_proyect_development"[0m
+  [1m[35m (29.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "group_21_proyect_test"[0m
+  [1m[35m (91.0ms)[0m  [1m[35mCREATE DATABASE "group_21_proyect_development" ENCODING = 'unicode'[0m
+  [1m[35m (65.2ms)[0m  [1m[35mCREATE DATABASE "group_21_proyect_test" ENCODING = 'unicode'[0m
+  [1m[35m (9.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5652297779640864450)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-05-02 14:32:39.480908', '2024-05-02 14:32:39.480911') RETURNING "key"[0m
+Migrating to AddTableUsers (20240429213557)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying DEFAULT '' NOT NULL, "email" character varying DEFAULT '' NOT NULL, "password" character varying NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240429213557') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddTableBoards (20240429213604)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "boards" ("id" bigserial primary key, "title" character varying DEFAULT '' NOT NULL, "description" text DEFAULT '' NOT NULL, "user_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE INDEX "index_boards_on_user_id" ON "boards" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240429213604') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddTableTasks (20240429213612)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "tasks" ("id" bigserial primary key, "title" character varying DEFAULT '' NOT NULL, "description" text DEFAULT '' NOT NULL, "priority" character varying DEFAULT '' NOT NULL, "custom_attributes" character varying DEFAULT '' NOT NULL, "status" character varying DEFAULT '' NOT NULL, "user_id" bigint, "asignee_task_id" bigint, "state_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "index_tasks_on_user_id" ON "tasks" ("user_id")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "index_tasks_on_asignee_task_id" ON "tasks" ("asignee_task_id")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE INDEX "index_tasks_on_state_id" ON "tasks" ("state_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240429213612') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to UsersToBoards (20240429213630)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "user_to_boards" ("id" bigserial primary key, "user_id" bigint, "board_id" bigint)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE INDEX "index_user_to_boards_on_user_id" ON "user_to_boards" ("user_id")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE INDEX "index_user_to_boards_on_board_id" ON "user_to_boards" ("board_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240429213630') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddTableStates (20240429222854)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "states" ("id" bigserial primary key, "name" character varying DEFAULT '' NOT NULL, "board_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE INDEX "index_states_on_board_id" ON "states" ("board_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240429222854') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddTableAsigneeTasks (20240502001555)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "asignee_tasks" ("id" bigserial primary key, "user_id" bigint)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE INDEX "index_asignee_tasks_on_user_id" ON "asignee_tasks" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240502001555') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(5652297779640864450)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Delete All (0.8ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mBoard Delete All (0.7ms)[0m  [1m[31mDELETE FROM "boards"[0m
+  [1m[36mTask Delete All (1.3ms)[0m  [1m[31mDELETE FROM "tasks"[0m
+  [1m[36mState Delete All (0.7ms)[0m  [1m[31mDELETE FROM "states"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "fbc@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Freddy Bacigalupo"], ["email", "fbc@example.com"], ["password", "[FILTERED]"], ["created_at", "2024-05-02 14:32:42.193099"], ["updated_at", "2024-05-02 14:32:42.193099"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "gbr@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Gianfranco Bobadilla"], ["email", "gbr@example.com"], ["password", "[FILTERED]"], ["created_at", "2024-05-02 14:32:42.198425"], ["updated_at", "2024-05-02 14:32:42.198425"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cbb@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Clemente Barros"], ["email", "cbb@example.com"], ["password", "[FILTERED]"], ["created_at", "2024-05-02 14:32:42.202086"], ["updated_at", "2024-05-02 14:32:42.202086"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Create (20.1ms)[0m  [1m[32mINSERT INTO "boards" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "My First Board"], ["description", "This board will be used for college assignments"], ["user_id", nil], ["created_at", "2024-05-02 14:32:42.214332"], ["updated_at", "2024-05-02 14:32:42.214332"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Create (0.9ms)[0m  [1m[32mINSERT INTO "boards" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "My Second Board"], ["description", "This board will be used for work assignments"], ["user_id", nil], ["created_at", "2024-05-02 14:32:42.237576"], ["updated_at", "2024-05-02 14:32:42.237576"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Create (0.8ms)[0m  [1m[32mINSERT INTO "boards" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "My Third Board"], ["description", "This board will be used for at home tasks"], ["user_id", nil], ["created_at", "2024-05-02 14:32:42.240738"], ["updated_at", "2024-05-02 14:32:42.240738"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Create (1.2ms)[0m  [1m[32mINSERT INTO "boards" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "My Fourth Board"], ["description", "This board will be used for..."], ["user_id", nil], ["created_at", "2024-05-02 14:32:42.242891"], ["updated_at", "2024-05-02 14:32:42.242891"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserToBoard Create (0.9ms)[0m  [1m[32mINSERT INTO "user_to_boards" ("user_id", "board_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 3], ["board_id", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserToBoard Create (0.8ms)[0m  [1m[32mINSERT INTO "user_to_boards" ("user_id", "board_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 1], ["board_id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserToBoard Create (0.9ms)[0m  [1m[32mINSERT INTO "user_to_boards" ("user_id", "board_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 2], ["board_id", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserToBoard Create (1.1ms)[0m  [1m[32mINSERT INTO "user_to_boards" ("user_id", "board_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 3], ["board_id", 2]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserToBoard Create (1.0ms)[0m  [1m[32mINSERT INTO "user_to_boards" ("user_id", "board_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 1], ["board_id", 2]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserToBoard Create (1.0ms)[0m  [1m[32mINSERT INTO "user_to_boards" ("user_id", "board_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 1], ["board_id", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserToBoard Create (0.9ms)[0m  [1m[32mINSERT INTO "user_to_boards" ("user_id", "board_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 3], ["board_id", 4]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserToBoard Create (0.8ms)[0m  [1m[32mINSERT INTO "user_to_boards" ("user_id", "board_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 1], ["board_id", 4]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserToBoard Create (0.8ms)[0m  [1m[32mINSERT INTO "user_to_boards" ("user_id", "board_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 2], ["board_id", 4]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mState Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "states" WHERE "states"."name" = $1 LIMIT $2[0m  [["name", "Not Started"], ["LIMIT", 1]]
+  [1m[36mState Create (0.7ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Not Started"], ["board_id", 1], ["created_at", "2024-05-02 14:32:42.290546"], ["updated_at", "2024-05-02 14:32:42.290546"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mState Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "states" WHERE "states"."name" = $1 LIMIT $2[0m  [["name", "Early Stages"], ["LIMIT", 1]]
+  [1m[36mState Create (0.2ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Early Stages"], ["board_id", 1], ["created_at", "2024-05-02 14:32:42.295053"], ["updated_at", "2024-05-02 14:32:42.295053"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mState Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "states" WHERE "states"."name" = $1 LIMIT $2[0m  [["name", "In Progress"], ["LIMIT", 1]]
+  [1m[36mState Create (0.2ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "In Progress"], ["board_id", 1], ["created_at", "2024-05-02 14:32:42.298884"], ["updated_at", "2024-05-02 14:32:42.298884"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mState Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "states" WHERE "states"."name" = $1 LIMIT $2[0m  [["name", "Finished"], ["LIMIT", 1]]
+  [1m[36mState Create (0.2ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Finished"], ["board_id", 1], ["created_at", "2024-05-02 14:32:42.304915"], ["updated_at", "2024-05-02 14:32:42.304915"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mState Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "states" WHERE "states"."name" = $1 LIMIT $2[0m  [["name", "Not Started Yet"], ["LIMIT", 1]]
+  [1m[36mState Create (0.1ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Not Started Yet"], ["board_id", 2], ["created_at", "2024-05-02 14:32:42.309354"], ["updated_at", "2024-05-02 14:32:42.309354"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mState Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "states" WHERE "states"."name" = $1 LIMIT $2[0m  [["name", "Early Stages 2"], ["LIMIT", 1]]
+  [1m[36mState Create (0.2ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Early Stages 2"], ["board_id", 2], ["created_at", "2024-05-02 14:32:42.313660"], ["updated_at", "2024-05-02 14:32:42.313660"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Load (0.1ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mState Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "states" WHERE "states"."name" = $1 LIMIT $2[0m  [["name", "In Progress 2"], ["LIMIT", 1]]
+  [1m[36mState Create (0.3ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "In Progress 2"], ["board_id", 2], ["created_at", "2024-05-02 14:32:42.317949"], ["updated_at", "2024-05-02 14:32:42.317949"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Load (0.1ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mState Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "states" WHERE "states"."name" = $1 LIMIT $2[0m  [["name", "Finished 2"], ["LIMIT", 1]]
+  [1m[36mState Create (0.2ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Finished 2"], ["board_id", 2], ["created_at", "2024-05-02 14:32:42.321866"], ["updated_at", "2024-05-02 14:32:42.321866"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Load (0.1ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mState Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "states" WHERE "states"."name" = $1 LIMIT $2[0m  [["name", "Not Started 3"], ["LIMIT", 1]]
+  [1m[36mState Create (0.2ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Not Started 3"], ["board_id", 3], ["created_at", "2024-05-02 14:32:42.325724"], ["updated_at", "2024-05-02 14:32:42.325724"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Load (0.1ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mState Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "states" WHERE "states"."name" = $1 LIMIT $2[0m  [["name", "Early Stages 3"], ["LIMIT", 1]]
+  [1m[36mState Create (0.2ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Early Stages 3"], ["board_id", 3], ["created_at", "2024-05-02 14:32:42.329484"], ["updated_at", "2024-05-02 14:32:42.329484"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Load (0.1ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mState Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "states" WHERE "states"."name" = $1 LIMIT $2[0m  [["name", "In Progress 3"], ["LIMIT", 1]]
+  [1m[36mState Create (0.2ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "In Progress 3"], ["board_id", 3], ["created_at", "2024-05-02 14:32:42.333457"], ["updated_at", "2024-05-02 14:32:42.333457"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Load (0.1ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mState Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "states" WHERE "states"."name" = $1 LIMIT $2[0m  [["name", "Finished 3"], ["LIMIT", 1]]
+  [1m[36mState Create (0.2ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Finished 3"], ["board_id", 3], ["created_at", "2024-05-02 14:32:42.337554"], ["updated_at", "2024-05-02 14:32:42.337554"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAsigneeTask Create (0.8ms)[0m  [1m[32mINSERT INTO "asignee_tasks" ("user_id") VALUES ($1) RETURNING "id"[0m  [["user_id", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAsigneeTask Create (0.1ms)[0m  [1m[32mINSERT INTO "asignee_tasks" ("user_id") VALUES ($1) RETURNING "id"[0m  [["user_id", 2]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mAsigneeTask Create (0.1ms)[0m  [1m[32mINSERT INTO "asignee_tasks" ("user_id") VALUES ($1) RETURNING "id"[0m  [["user_id", 3]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mAsigneeTask Load (0.2ms)[0m  [1m[34mSELECT "asignee_tasks".* FROM "asignee_tasks" WHERE "asignee_tasks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mState Load (0.2ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."title" = $1 LIMIT $2[0m  [["title", "Avanzar En Web"], ["LIMIT", 1]]
+  [1m[36mTask Create (1.1ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "priority", "custom_attributes", "status", "user_id", "asignee_task_id", "state_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "Avanzar En Web"], ["description", "Navegar las olas del código y explorar nuevas tecnologías."], ["priority", "High"], ["custom_attributes", ""], ["status", ""], ["user_id", 3], ["asignee_task_id", 1], ["state_id", 1], ["created_at", "2024-05-02 14:32:42.373430"], ["updated_at", "2024-05-02 14:32:42.373430"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAsigneeTask Load (0.1ms)[0m  [1m[34mSELECT "asignee_tasks".* FROM "asignee_tasks" WHERE "asignee_tasks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mState Load (0.2ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."title" = $1 LIMIT $2[0m  [["title", "Empezar Proyecto A01!"], ["LIMIT", 1]]
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "priority", "custom_attributes", "status", "user_id", "asignee_task_id", "state_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "Empezar Proyecto A01!"], ["description", "Iniciar la travesía hacia la creación de un nuevo proyecto innovador."], ["priority", "Medium"], ["custom_attributes", ""], ["status", ""], ["user_id", 1], ["asignee_task_id", 2], ["state_id", 1], ["created_at", "2024-05-02 14:32:42.380740"], ["updated_at", "2024-05-02 14:32:42.380740"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAsigneeTask Load (0.2ms)[0m  [1m[34mSELECT "asignee_tasks".* FROM "asignee_tasks" WHERE "asignee_tasks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mState Load (0.2ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTask Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."title" = $1 LIMIT $2[0m  [["title", "Destruir Base De Datos De La Clase"], ["LIMIT", 1]]
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "priority", "custom_attributes", "status", "user_id", "asignee_task_id", "state_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "Destruir Base De Datos De La Clase"], ["description", "Desmantelar las estructuras de datos con habilidad destructora."], ["priority", "High"], ["custom_attributes", ""], ["status", ""], ["user_id", 2], ["asignee_task_id", 1], ["state_id", 2], ["created_at", "2024-05-02 14:32:42.386805"], ["updated_at", "2024-05-02 14:32:42.386805"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mAsigneeTask Load (0.2ms)[0m  [1m[34mSELECT "asignee_tasks".* FROM "asignee_tasks" WHERE "asignee_tasks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mState Load (0.2ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTask Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."title" = $1 LIMIT $2[0m  [["title", "Hacer Modelos Relacionales"], ["LIMIT", 1]]
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "priority", "custom_attributes", "status", "user_id", "asignee_task_id", "state_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "Hacer Modelos Relacionales"], ["description", "Construir conexiones sólidas entre datos para dar forma a un modelo robusto."], ["priority", "Medium"], ["custom_attributes", ""], ["status", ""], ["user_id", 3], ["asignee_task_id", 2], ["state_id", 4], ["created_at", "2024-05-02 14:32:42.392868"], ["updated_at", "2024-05-02 14:32:42.392868"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAsigneeTask Load (0.2ms)[0m  [1m[34mSELECT "asignee_tasks".* FROM "asignee_tasks" WHERE "asignee_tasks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mState Load (0.2ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTask Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."title" = $1 LIMIT $2[0m  [["title", "Contactar Al Profesor"], ["LIMIT", 1]]
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "priority", "custom_attributes", "status", "user_id", "asignee_task_id", "state_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "Contactar Al Profesor"], ["description", "Buscar orientación y sabiduría del maestro en momentos de incertidumbre."], ["priority", "Low"], ["custom_attributes", ""], ["status", ""], ["user_id", 1], ["asignee_task_id", 3], ["state_id", 3], ["created_at", "2024-05-02 14:32:42.398904"], ["updated_at", "2024-05-02 14:32:42.398904"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAsigneeTask Load (0.2ms)[0m  [1m[34mSELECT "asignee_tasks".* FROM "asignee_tasks" WHERE "asignee_tasks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mState Load (0.2ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTask Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."title" = $1 LIMIT $2[0m  [["title", "Contactar Al Ayudante"], ["LIMIT", 1]]
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "priority", "custom_attributes", "status", "user_id", "asignee_task_id", "state_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "Contactar Al Ayudante"], ["description", "Solicitar la asistencia del compañero en la lucha contra los desafíos del día a día."], ["priority", "Low"], ["custom_attributes", ""], ["status", ""], ["user_id", 1], ["asignee_task_id", 2], ["state_id", 4], ["created_at", "2024-05-02 14:32:42.404603"], ["updated_at", "2024-05-02 14:32:42.404603"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAsigneeTask Load (0.1ms)[0m  [1m[34mSELECT "asignee_tasks".* FROM "asignee_tasks" WHERE "asignee_tasks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mState Load (0.1ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTask Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."title" = $1 LIMIT $2[0m  [["title", "Empezar Proyecto"], ["LIMIT", 1]]
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "priority", "custom_attributes", "status", "user_id", "asignee_task_id", "state_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "Empezar Proyecto"], ["description", "Iniciar la travesía hacia la creación de algo nuevo y emocionante."], ["priority", "High"], ["custom_attributes", ""], ["status", ""], ["user_id", 2], ["asignee_task_id", 3], ["state_id", 5], ["created_at", "2024-05-02 14:32:42.410471"], ["updated_at", "2024-05-02 14:32:42.410471"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAsigneeTask Load (0.1ms)[0m  [1m[34mSELECT "asignee_tasks".* FROM "asignee_tasks" WHERE "asignee_tasks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mState Load (0.1ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTask Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."title" = $1 LIMIT $2[0m  [["title", "Crear Base De Datos"], ["LIMIT", 1]]
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "priority", "custom_attributes", "status", "user_id", "asignee_task_id", "state_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "Crear Base De Datos"], ["description", "Dar forma a los cimientos de la información, construyendo un espacio organizado para los datos."], ["priority", "Medium"], ["custom_attributes", ""], ["status", ""], ["user_id", 2], ["asignee_task_id", 3], ["state_id", 5], ["created_at", "2024-05-02 14:32:42.417696"], ["updated_at", "2024-05-02 14:32:42.417696"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mAsigneeTask Load (0.1ms)[0m  [1m[34mSELECT "asignee_tasks".* FROM "asignee_tasks" WHERE "asignee_tasks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mState Load (0.1ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTask Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."title" = $1 LIMIT $2[0m  [["title", "Reunión General"], ["LIMIT", 1]]
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "priority", "custom_attributes", "status", "user_id", "asignee_task_id", "state_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "Reunión General"], ["description", "Unir fuerzas y alinear objetivos en una asamblea de camaradería y colaboración."], ["priority", "High"], ["custom_attributes", ""], ["status", ""], ["user_id", 3], ["asignee_task_id", 1], ["state_id", 6], ["created_at", "2024-05-02 14:32:42.424159"], ["updated_at", "2024-05-02 14:32:42.424159"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAsigneeTask Load (0.1ms)[0m  [1m[34mSELECT "asignee_tasks".* FROM "asignee_tasks" WHERE "asignee_tasks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mState Load (0.1ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mTask Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."title" = $1 LIMIT $2[0m  [["title", "Probar Códigos"], ["LIMIT", 1]]
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "priority", "custom_attributes", "status", "user_id", "asignee_task_id", "state_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "Probar Códigos"], ["description", "Explorar los laberintos del código en busca de errores y mejoras."], ["priority", "Medium"], ["custom_attributes", ""], ["status", ""], ["user_id", 2], ["asignee_task_id", 1], ["state_id", 7], ["created_at", "2024-05-02 14:32:42.430171"], ["updated_at", "2024-05-02 14:32:42.430171"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAsigneeTask Load (0.1ms)[0m  [1m[34mSELECT "asignee_tasks".* FROM "asignee_tasks" WHERE "asignee_tasks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mState Load (0.1ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mTask Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."title" = $1 LIMIT $2[0m  [["title", "Capacitar A Los Nuevos"], ["LIMIT", 1]]
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "priority", "custom_attributes", "status", "user_id", "asignee_task_id", "state_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "Capacitar A Los Nuevos"], ["description", "Guiar a los recién llegados por el camino hacia la maestría y la excelencia."], ["priority", "Low"], ["custom_attributes", ""], ["status", ""], ["user_id", 2], ["asignee_task_id", 3], ["state_id", 8], ["created_at", "2024-05-02 14:32:42.436414"], ["updated_at", "2024-05-02 14:32:42.436414"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mAsigneeTask Load (0.1ms)[0m  [1m[34mSELECT "asignee_tasks".* FROM "asignee_tasks" WHERE "asignee_tasks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mState Load (0.1ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTask Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."title" = $1 LIMIT $2[0m  [["title", "Retirar Paquetes"], ["LIMIT", 1]]
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "priority", "custom_attributes", "status", "user_id", "asignee_task_id", "state_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "Retirar Paquetes"], ["description", "Limpiar el área de trabajo eliminando los residuos y preparándola para nuevas aventuras."], ["priority", "Low"], ["custom_attributes", ""], ["status", ""], ["user_id", 3], ["asignee_task_id", 2], ["state_id", 5], ["created_at", "2024-05-02 14:32:42.442084"], ["updated_at", "2024-05-02 14:32:42.442084"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mAsigneeTask Load (0.1ms)[0m  [1m[34mSELECT "asignee_tasks".* FROM "asignee_tasks" WHERE "asignee_tasks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mState Load (0.1ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mTask Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."title" = $1 LIMIT $2[0m  [["title", "Avanzar En Presentaciones"], ["LIMIT", 1]]
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "priority", "custom_attributes", "status", "user_id", "asignee_task_id", "state_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "Avanzar En Presentaciones"], ["description", "Dar un paso adelante en la creación de impactantes presentaciones que inspiren y cautiven."], ["priority", "High"], ["custom_attributes", ""], ["status", ""], ["user_id", 3], ["asignee_task_id", 2], ["state_id", 7], ["created_at", "2024-05-02 14:32:42.447699"], ["updated_at", "2024-05-02 14:32:42.447699"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mAsigneeTask Load (0.1ms)[0m  [1m[34mSELECT "asignee_tasks".* FROM "asignee_tasks" WHERE "asignee_tasks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mState Load (0.1ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTask Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."title" = $1 LIMIT $2[0m  [["title", "Secar Ropa"], ["LIMIT", 1]]
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "priority", "custom_attributes", "status", "user_id", "asignee_task_id", "state_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "Secar Ropa"], ["description", "Poner fin a la humedad y devolver la frescura a las prendas recién lavadas."], ["priority", "Low"], ["custom_attributes", ""], ["status", ""], ["user_id", 3], ["asignee_task_id", 2], ["state_id", 9], ["created_at", "2024-05-02 14:32:42.453962"], ["updated_at", "2024-05-02 14:32:42.453962"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAsigneeTask Load (0.1ms)[0m  [1m[34mSELECT "asignee_tasks".* FROM "asignee_tasks" WHERE "asignee_tasks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mState Load (0.1ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTask Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."title" = $1 LIMIT $2[0m  [["title", "Hacer Mi Almuerzo"], ["LIMIT", 1]]
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "priority", "custom_attributes", "status", "user_id", "asignee_task_id", "state_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "Hacer Mi Almuerzo"], ["description", "Crear un festín para satisfacer el hambre y recargar energías para el resto del día."], ["priority", "Medium"], ["custom_attributes", ""], ["status", ""], ["user_id", 1], ["asignee_task_id", 2], ["state_id", 10], ["created_at", "2024-05-02 14:32:42.460971"], ["updated_at", "2024-05-02 14:32:42.460971"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAsigneeTask Load (0.1ms)[0m  [1m[34mSELECT "asignee_tasks".* FROM "asignee_tasks" WHERE "asignee_tasks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mState Load (0.1ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTask Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."title" = $1 LIMIT $2[0m  [["title", "Ducharse"], ["LIMIT", 1]]
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "priority", "custom_attributes", "status", "user_id", "asignee_task_id", "state_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "Ducharse"], ["description", "Sumergirse en las aguas revitalizantes para refrescar el cuerpo y la mente."], ["priority", "High"], ["custom_attributes", ""], ["status", ""], ["user_id", 1], ["asignee_task_id", 3], ["state_id", 10], ["created_at", "2024-05-02 14:32:42.466933"], ["updated_at", "2024-05-02 14:32:42.466933"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAsigneeTask Load (0.1ms)[0m  [1m[34mSELECT "asignee_tasks".* FROM "asignee_tasks" WHERE "asignee_tasks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mState Load (0.1ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mTask Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."title" = $1 LIMIT $2[0m  [["title", "Lavarse Los Dientes"], ["LIMIT", 1]]
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "priority", "custom_attributes", "status", "user_id", "asignee_task_id", "state_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "Lavarse Los Dientes"], ["description", "Eliminar las impurezas y mantener la sonrisa radiante y saludable."], ["priority", "High"], ["custom_attributes", ""], ["status", ""], ["user_id", 2], ["asignee_task_id", 1], ["state_id", 11], ["created_at", "2024-05-02 14:32:42.473286"], ["updated_at", "2024-05-02 14:32:42.473286"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAsigneeTask Load (0.1ms)[0m  [1m[34mSELECT "asignee_tasks".* FROM "asignee_tasks" WHERE "asignee_tasks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mState Load (0.1ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mTask Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."title" = $1 LIMIT $2[0m  [["title", "Pasear Al Perro"], ["LIMIT", 1]]
+  [1m[36mTask Create (0.2ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "priority", "custom_attributes", "status", "user_id", "asignee_task_id", "state_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "Pasear Al Perro"], ["description", "Explorar el mundo exterior junto a tu leal compañero de cuatro patas."], ["priority", "Medium"], ["custom_attributes", ""], ["status", ""], ["user_id", 2], ["asignee_task_id", 3], ["state_id", 12], ["created_at", "2024-05-02 14:32:42.479132"], ["updated_at", "2024-05-02 14:32:42.479132"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for 127.0.0.1 at 2024-05-02 10:32:47 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#Home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/Home.html.erb within layouts/application
+  [1m[36mBoard Load (1.0ms)[0m  [1m[34mSELECT "boards".* FROM "boards" ORDER BY "boards"."created_at" DESC LIMIT $1[0m  [["LIMIT", 3]]
+  ↳ app/views/static_pages/Home.html.erb:8
+  Rendered static_pages/Home.html.erb within layouts/application (Duration: 13.7ms | Allocations: 10703)
+  Rendered layout layouts/application.html.erb (Duration: 20.9ms | Allocations: 13165)
+Completed 200 OK in 79ms (Views: 19.4ms | ActiveRecord: 12.2ms | Allocations: 28552)
+
+
+Started GET "/boards/3" for 127.0.0.1 at 2024-05-02 10:32:48 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:8:in `show'
+  [1m[36mState Load (0.5ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering boards/show.html.erb within layouts/application
+  [1m[36mState Load (0.5ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."board_id" = $1[0m  [["board_id", 3]]
+  ↳ app/views/boards/show.html.erb:6
+  [1m[36mTask Load (0.7ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 9]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 10]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (3.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 11]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 12]]
+  ↳ app/views/boards/show.html.erb:11
+  Rendered boards/show.html.erb within layouts/application (Duration: 29.8ms | Allocations: 15524)
+  Rendered layout layouts/application.html.erb (Duration: 31.6ms | Allocations: 16283)
+Completed 200 OK in 62ms (Views: 25.8ms | ActiveRecord: 13.3ms | Allocations: 28483)
+
+
+Started GET "/boards/4" for 127.0.0.1 at 2024-05-02 10:32:49 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:8:in `show'
+  [1m[36mState Load (0.2ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering boards/show.html.erb within layouts/application
+  [1m[36mState Load (0.1ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."board_id" = $1[0m  [["board_id", 4]]
+  ↳ app/views/boards/show.html.erb:6
+  Rendered boards/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 578)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 1304)
+Completed 200 OK in 4ms (Views: 1.7ms | ActiveRecord: 0.6ms | Allocations: 2447)
+
+
+Started GET "/boards" for 127.0.0.1 at 2024-05-02 10:32:50 -0400
+Processing by BoardsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering boards/index.html.erb within layouts/application
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  ↳ app/views/boards/index.html.erb:14
+  Rendered boards/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 864)
+  Rendered layout layouts/application.html.erb (Duration: 3.2ms | Allocations: 1618)
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.4ms | Allocations: 1930)
+
+
+Started GET "/boards/4" for 127.0.0.1 at 2024-05-02 10:32:52 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mBoard Load (0.5ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:8:in `show'
+  [1m[36mState Load (0.2ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering boards/show.html.erb within layouts/application
+  [1m[36mState Load (0.2ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."board_id" = $1[0m  [["board_id", 4]]
+  ↳ app/views/boards/show.html.erb:6
+  Rendered boards/show.html.erb within layouts/application (Duration: 1.8ms | Allocations: 578)
+  Rendered layout layouts/application.html.erb (Duration: 3.6ms | Allocations: 1298)
+Completed 200 OK in 9ms (Views: 4.0ms | ActiveRecord: 0.9ms | Allocations: 2438)
+
+
+Started GET "/boards" for 127.0.0.1 at 2024-05-02 10:32:54 -0400
+Processing by BoardsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering boards/index.html.erb within layouts/application
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  ↳ app/views/boards/index.html.erb:14
+  Rendered boards/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 618)
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | Allocations: 1354)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.4ms | Allocations: 1597)
+
+
