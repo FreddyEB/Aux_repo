@@ -16,6 +16,8 @@
                 </div>
             <% end %>
         </div>
-        <%= link_to 'Back to [Boards]', boards_path, class: 'btn btn-success'%>
+        <%= link_to 'Back to [Boards]', boards_path, class: 'btn btn-warning'%>
+        <%= link_to 'Board Editor', edit_board_path, class: 'btn btn-primary'%>
+        <%= link_to 'Destroy', @board, data: { turbo_confirm: 'Are you sure?', turbo_method: "delete" }, class: 'btn btn-danger' %>
     </div>    
 </div>
