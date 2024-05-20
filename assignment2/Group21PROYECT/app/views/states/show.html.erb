@@ -1,0 +1,14 @@
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header bg-primary text-white">
+      <h1 class="card-title">Board Title: <%= @state.board.title %></h1>
+    </div>
+    <div class="card-body">
+      <h2 class="card-subtitle mb-2 text-muted">State Name: <%= @state.name %></h2>
+      <%= link_to 'Back to States', states_path, class: 'btn btn-warning mt-3' %>
+      <%= link_to 'State Editor', edit_state_path, class: 'btn btn-primary mt-3' %>
+      <%= link_to 'Destroy State', @state, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger mt-3' %>
+      <%= link_to 'Create Tasks', new_task_path, class: 'btn btn-success mt-3' %>
+    </div>
+  </div>
+</div>

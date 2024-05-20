@@ -1,0 +1,26 @@
+<title>Tasks</title>
+<div class="container-fluid">
+    <h1> Welcome to your Tasks</h1>
+</div>
+
+<div class="container-l" style='margin: 30px'>
+    <div class="container text-center">
+        <table class="table table-striped-columns table-hover">
+            <tr>
+                <td id="td1" style="background-color: black; color: white;"> TITLE </td>
+                <td id="td1" style="background-color: black; color: white;"> STATE </td>
+                <td id="td1" style="background-color: black; color: white;"> VIEW TASK </td>
+            </tr>
+            <% @tasks.each do |task| %>
+            <tr>
+                <td><%= task.title %></td>
+                <td><%= task.state.name %></td>
+                <td><%= link_to 'View', task_path(task), class: 'card-link btn btn-info'%></td>
+            </tr>
+            <% end %>
+        </table>
+    <%= link_to 'Back To Homepage', root_path, class: 'btn btn-secondary' %>
+    <%= link_to 'Task Creator', new_task_path, class: 'btn btn-primary' %>
+
+    </div>
+</div>

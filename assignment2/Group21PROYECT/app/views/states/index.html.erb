@@ -1,0 +1,26 @@
+<title>States</title>
+<div class="container-fluid">
+    <h1> Welcome to your Board's States</h1>
+</div>
+
+<div class="container-l" style='margin: 30px'>
+    <div class="container text-center">
+        <table class="table table-striped-columns table-hover">
+            <tr>
+                <td id="td1" style="background-color: black; color: white;"> NAME </td>
+                <td id="td1" style="background-color: black; color: white;"> BOARD </td>
+                <td id="td1" style="background-color: black; color: white;"> View State </td>
+            </tr>
+            <% @states.each do |state| %>
+            <tr>
+                <td><%= state.name %></td>
+                <td><%= state.board.title %></td>
+                <td><%= link_to 'View', state_path(state), class: 'card-link btn btn-warning'%></td>
+            </tr>
+            <% end %>
+        </table>
+    <%= link_to 'Back To Homepage', root_path, class: 'btn btn-secondary' %>
+    <%= link_to 'State Creator', new_state_path, class: 'btn btn-primary' %>
+
+    </div>
+</div>

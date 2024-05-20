@@ -1,0 +1,18 @@
+<div class="container-l" style='margin: 30px'>
+    <%= form_with(model: state) do |f| %>
+        <div class="form-group mb-3">
+            <%= f.label :name %>
+            <%= f.text_area :name, class: "form-control", required: true %>
+        </div>
+
+        <% if @board.present? %>
+            <%= f.hidden_field :board_id, value: @board.id%>
+        <% else %>
+            <div class="form-group mb-3">
+                <%= f.label :board_id %>
+                <%= f.collection_select :board_id, Board.all, :id, :title, {prompt: "Select a board"}, {class: "form-control"} %>
+            </div>
+        <% end %>
+        <%= f.submit "Submit", class: "btn btn-primary" %>
+    <% end %>
+</div>

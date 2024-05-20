@@ -13,9 +13,18 @@
       background-image: url('<%= asset_path('IMG_0088.jpg') %>');
       background-size: cover;
       background-position: center;
+      background-repeat: no-repeat;
       margin: 0;
       padding: 0;
-      height: 100vh;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .content {
+      flex: 1;
+    }
+    .footer {
+      flex-shrink: 0;
     }
     </style>
     </head>
@@ -34,16 +43,15 @@
             <li class="nav-item">
               <a class="navbar-brand" href="http://127.0.0.1:3000/boards"><span class="sr-only"> <strong>[Boards]</strong></span></a>
             </li>
+            <li class="nav-item">
+              <a class="navbar-brand" href="http://127.0.0.1:3000/states"><span class="sr-only"> <strong>[States]</strong></span></a>
+            </li>
+            <li class="nav-item">
+              <a class="navbar-brand" href="http://127.0.0.1:3000/tasks"><span class="sr-only"> <strong>[Tasks]</strong></span></a>
+            </li>
         </div>
       </nav>
 
     <%= yield %>
   </body>
-  <div class="container-l">
-      <div class="container text-center">
-        <footer class="footer fixed-bottom bg-success text-white text-center py-2">
-          <p><strong>© 2024 Group 21.</strong></p>
-        </footer>
-      </div>
-    </div>
 </html>

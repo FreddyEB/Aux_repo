@@ -1,23 +1,42 @@
-<div class="container-l" style='margin: 10px'>
-    <div class="container text-center">
-        <h1 style="font-family: Comic sans;"><%= @board.title %></h1>
-        <h2 style="font-family: Comic sans;"><%= @board.description %></h2>
-        <div class="row" style="margin: 20px">
-            <% @states.each do |state| %>
-                <div class="col">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title" style="font-family:verdana;">  <%= state.name %> </h4>
-                                <% state.tasks.each do |task| %>
-                                    <button class="btn btn-primary"><%= task.title %></button>
-                                <% end %>
-                        </div>
-                    </div>
+<div class="container mt-5">
+  <div class="text-center mb-4">
+    <h1 class="display-4" style="font-family: 'Comic Sans MS';"><%= @board.title %></h1>
+    <h2 class="lead" style="font-family: 'Comic Sans MS';"><%= @board.description %></h2>
+  </div>
+  <div class="row">
+    <% @states.each do |state| %>
+      <div class="col-md-4 mb-4">
+        <div class="card h-100">
+          <div class="card-header bg-primary text-white">
+            <h4 class="card-title" style="font-family: Verdana;"> <%= state.name %> </h4>
+          </div>
+          <div class="card-body">
+            <% state.tasks.each do |task| %>
+              <div class="card mb-2">
+                <div class="card-body p-2">
+                  <button class="btn btn-primary btn-block"><%= task.title %></button>
                 </div>
+              </div>
             <% end %>
+          </div>
         </div>
-        <%= link_to 'Back to [Boards]', boards_path, class: 'btn btn-warning'%>
-        <%= link_to 'Board Editor', edit_board_path, class: 'btn btn-primary'%>
-        <%= link_to 'Destroy', @board, data: { turbo_confirm: 'Are you sure?', turbo_method: "delete" }, class: 'btn btn-danger' %>
-    </div>    
+      </div>
+    <% end %>
+  </div>
+  <div class="text-center mt-4">
+    <%= link_to 'Back to Boards', boards_path, class: 'btn btn-warning mx-2' %>
+    <%= link_to 'Edit Board', edit_board_path(@board), class: 'btn btn-primary mx-2' %>
+    <%= link_to 'Destroy Board', @board, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger mx-2' %>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header bg-light">
+      <h4 class="mb-0">Create a New State for this Board</h4>
+    </div>
+    <div class="card-body">
+      <%= link_to 'State Creator', new_state_path(board_id: @board.id), class: 'btn btn-light' %>
+    </div>
+  </div>
 </div>

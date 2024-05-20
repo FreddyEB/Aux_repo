@@ -42,10 +42,10 @@ class BoardsController < ApplicationController
         @board.destroy
     
         respond_to do |format|
-          format.html { redirect_to boards_url, notice: "Comment was successfully destroyed." }
+          format.html { redirect_to boards_url, notice: "Board was successfully destroyed." }
           format.json { head :no_content }
         end
-      end
+    end
 
     def board_params
 		params.require(:board).permit(:title, :description, :user_id)

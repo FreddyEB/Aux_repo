@@ -1,0 +1,14 @@
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header bg-primary text-white">
+      <h1 class="card-title">Board Title: <%= @task.state.board.title %></h1>
+      <h1 class="card-title">State Name: <%= @task.state.name %></h1>
+    </div>
+    <div class="card-body">
+      <h2 class="card-subtitle mb-2 text-muted">Task Title: <%= @task.title %></h2>
+      <%= link_to 'Back to Tasks', tasks_path, class: 'btn btn-warning mt-3' %>
+      <%= link_to 'Task Editor', edit_task_path, class: 'btn btn-primary mt-3' %>
+      <%= link_to 'Destroy Task', @task, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger mt-3' %>
+    </div>
+  </div>
+</div>

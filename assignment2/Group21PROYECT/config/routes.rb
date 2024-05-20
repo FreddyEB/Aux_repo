@@ -9,5 +9,9 @@ Rails.application.routes.draw do
   # root "posts#index"
   get '/Home', to: 'static_pages#Home'
   root 'static_pages#Home'
-  resources :boards
+  resources :boards do 
+    resources :states
+  end
+  resources :states
+  resources :tasks
 end

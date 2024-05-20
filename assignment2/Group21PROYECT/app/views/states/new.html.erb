@@ -1,0 +1,25 @@
+<% if @board.present?%>
+<h1><strong><%= @board.title %></strong></h1>
+  <h2>Create a new State for this board: </h2>
+  <%= render "form", state: @state %>
+  <br>
+
+  <div>
+    <div class="container-l" style='margin: 30px'>
+        <%= link_to "Back to states", states_path, class: "btn btn-warning" %>
+    </div>
+  </div>
+<% else%>
+
+<div class="container-l" style='margin: 30px'>
+    <h1>Create a New State!</h1>
+</div>
+
+
+<%= render "form", state: @state %>
+<div class="container-l" style='margin: 30px'>
+<%= link_to "Back to states", states_path, class: "btn btn-warning"%>
+</div>
+
+
+<% end %>
