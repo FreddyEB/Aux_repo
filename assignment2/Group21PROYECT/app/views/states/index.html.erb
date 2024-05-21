@@ -1,26 +1,43 @@
-<title>States</title>
-<div class="container-fluid">
-    <h1> Welcome to your Board's States</h1>
-</div>
-
-<div class="container-l" style='margin: 30px'>
-    <div class="container text-center">
-        <table class="table table-striped-columns table-hover">
-            <tr>
-                <td id="td1" style="background-color: black; color: white;"> NAME </td>
-                <td id="td1" style="background-color: black; color: white;"> BOARD </td>
-                <td id="td1" style="background-color: black; color: white;"> View State </td>
-            </tr>
-            <% @states.each do |state| %>
-            <tr>
-                <td><%= state.name %></td>
-                <td><%= state.board.title %></td>
-                <td><%= link_to 'View', state_path(state), class: 'card-link btn btn-warning'%></td>
-            </tr>
-            <% end %>
-        </table>
-    <%= link_to 'Back To Homepage', root_path, class: 'btn btn-secondary' %>
-    <%= link_to 'State Creator', new_state_path, class: 'btn btn-primary' %>
-
+<style>
+    .container {
+        margin-top: 30px;
+    }
+    .card {
+        margin-bottom: 20px;
+    }
+</style>
+<body>
+    <div class="container-fluid">
+        <h1 class="text-center">Welcome to Your Board's States</h1>
     </div>
-</div>
+    <% if flash[:notice] %>
+        <div class="container">
+            <div class="alert alert-success">
+                <%= flash[:notice] %>
+            </div>
+        </div>
+    <% end %>
+    <div class="container" style="">
+        <div class="row">
+            <% @states.each do |state| %>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-header bg-warning text-black">
+                                <h5 class="card-title"><%= state.name %></h5>
+                            </div>
+                            <p class="card-text">Board: <%= state.board.title %></p>
+                            <a href="<%= state_path(state) %>" class="btn btn-warning">View</a>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+        <div class="row mt-4">
+            <div class="col-12 text-center">
+                <%= link_to 'Back to Homepage', root_path, class: 'btn btn-secondary mr-2' %>
+                <%= link_to 'State Creator', new_state_path, class: 'btn btn-primary' %>
+            </div>
+        </div>
+    </div>
+</body>

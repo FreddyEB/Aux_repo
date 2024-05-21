@@ -4,29 +4,38 @@
     <h2 class="lead" style="font-family: 'Comic Sans MS';"><%= @board.description %></h2>
   </div>
   <div class="row">
-    <% @states.each do |state| %>
-      <div class="col-md-4 mb-4">
-        <div class="card h-100">
-          <div class="card-header bg-primary text-white">
-            <h4 class="card-title" style="font-family: Verdana;"> <%= state.name %> </h4>
-          </div>
-          <div class="card-body">
-            <% state.tasks.each do |task| %>
-              <div class="card mb-2">
-                <div class="card-body p-2">
-                  <button class="btn btn-primary btn-block"><%= task.title %></button>
+        <% @states.each do |state| %>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+            <div class="card-header bg-primary text-white">
+                <h4 class="card-title" style="font-family: Verdana;"> <%= state.name %> </h4>
+            </div>
+            <div class="card-body">
+                <div class="container">
+                <% state.tasks.each do |task| %>
+                    <div class="row mb-2">
+                    <div class="col">
+                        <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= task.title %></h5>
+                            <p class="card-text"><%= task.description %></p>
+                            <a href="<%= task_path(task) %>" class="btn btn-primary btn-block">View Task</a>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                <% end %>
                 </div>
-              </div>
-            <% end %>
-          </div>
+            </div>
+            </div>
         </div>
-      </div>
-    <% end %>
+        <% end %>
   </div>
   <div class="text-center mt-4">
     <%= link_to 'Back to Boards', boards_path, class: 'btn btn-warning mx-2' %>
     <%= link_to 'Edit Board', edit_board_path(@board), class: 'btn btn-primary mx-2' %>
     <%= link_to 'Destroy Board', @board, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger mx-2' %>
+
   </div>
 </div>
 

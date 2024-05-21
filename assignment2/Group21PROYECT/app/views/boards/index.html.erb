@@ -2,7 +2,11 @@
 <div class="container-fluid">
     <h1> Welcome to your TrelloClone's Boards </h1>
 </div>
-
+<% if flash[:notice] %>
+  <div class="alert alert-success">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
 <div class="container-l" style='margin: 30px'>
     <div class="container text-center">
         <table class="table table-striped-columns table-hover">

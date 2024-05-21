@@ -1,26 +1,42 @@
-<title>Tasks</title>
+<style>
+    .container {
+        margin-top: 30px;
+    }
+    .card {
+        margin-bottom: 20px;
+    }
+</style>
 <div class="container-fluid">
-    <h1> Welcome to your Tasks</h1>
+    <h1 class="text-center">Welcome to your Tasks</h1>
 </div>
-
-<div class="container-l" style='margin: 30px'>
-    <div class="container text-center">
-        <table class="table table-striped-columns table-hover">
-            <tr>
-                <td id="td1" style="background-color: black; color: white;"> TITLE </td>
-                <td id="td1" style="background-color: black; color: white;"> STATE </td>
-                <td id="td1" style="background-color: black; color: white;"> VIEW TASK </td>
-            </tr>
-            <% @tasks.each do |task| %>
-            <tr>
-                <td><%= task.title %></td>
-                <td><%= task.state.name %></td>
-                <td><%= link_to 'View', task_path(task), class: 'card-link btn btn-info'%></td>
-            </tr>
-            <% end %>
-        </table>
-    <%= link_to 'Back To Homepage', root_path, class: 'btn btn-secondary' %>
-    <%= link_to 'Task Creator', new_task_path, class: 'btn btn-primary' %>
-
+<% if flash[:notice] %>
+    <div class="container">
+        <div class="alert alert-success">
+            <%= flash[:notice] %>
+        </div>
+    </div>
+<% end %>
+<div class="container">
+    <div class="row">
+        <% @tasks.each do |task| %>
+            <div class="col-lg-4 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-header bg-info text-white">
+                                <h5 class="card-title"><%= task.title %></h5>
+                        </div>
+                        <p class="card-text"><strong>State:</strong> <%= task.state.name %></p>
+                        <p class="card-text"><strong>Board:</strong> <%= task.state.board.title %></p>
+                        <a href="<%= task_path(task) %>" class="btn btn-info">View Task</a>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+    <div class="row mt-4">
+        <div class="col-12 text-center">
+            <%= link_to 'Back To Homepage', root_path, class: 'btn btn-secondary mr-2' %>
+            <%= link_to 'Task Creator', new_task_path, class: 'btn btn-primary' %>
+        </div>
     </div>
 </div>
