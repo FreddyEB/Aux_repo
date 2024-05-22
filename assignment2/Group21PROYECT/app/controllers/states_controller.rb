@@ -22,7 +22,7 @@ class StatesController < ApplicationController
         respond_to do |format|
             if @state.save
                 flash[:notice] = 'State was successfully created.'
-                format.html { redirect_to state_url(@state), notice: "State was successfully created." }
+                format.html { redirect_to states_path, notice: "State was successfully created." }
                 format.json { render :show, status: :created, location: @state }
             else
                 flash[:alert] = 'There was an error creating the state.'
@@ -51,7 +51,7 @@ class StatesController < ApplicationController
         @state.destroy
     
         respond_to do |format|
-          format.html { redirect_to states_url, notice: "State was successfully destroyed." }
+          format.html { redirect_to states_path, notice: "State was successfully destroyed." }
           format.json { head :no_content }
         end
     end

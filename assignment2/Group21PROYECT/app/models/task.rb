@@ -3,7 +3,7 @@ class Task < ApplicationRecord
     belongs_to :asignee_task
     belongs_to :state
 
-    validates :title, presence: { message: "This field can't be blank" }, uniqueness: { message: "This task already exists" }
+    validates :title, presence: { message: "This field can't be blank" }
     validates :priority, presence:{ message: "Your task needs a priority level"}
     validates :user_id, presence:{ message: "Your task needs an associated User"}
     validates :state_id, presence:{ message: "Your task needs to be associated to a State"}

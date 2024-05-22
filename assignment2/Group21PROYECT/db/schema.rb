@@ -41,7 +41,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_02_001555) do
     t.text "description", default: "", null: false
     t.string "priority", default: "", null: false
     t.string "custom_attributes", default: "", null: false
-    t.string "status", default: "", null: false
     t.bigint "user_id"
     t.bigint "asignee_task_id"
     t.bigint "state_id"

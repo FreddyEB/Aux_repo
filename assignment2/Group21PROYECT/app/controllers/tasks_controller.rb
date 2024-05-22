@@ -20,7 +20,7 @@ class TasksController < ApplicationController
 		@task = Task.new(task_params)
         respond_to do |format|
             if @task.save
-                format.html { redirect_to task_url(@task), notice: "task was successfully created." }
+                format.html { redirect_to tasks_path, notice: "task was successfully created." }
                 format.json { render :show, status: :created, location: @task }
             else
                 format.html { render :new, status: :unprocessable_entity }
@@ -46,10 +46,7 @@ class TasksController < ApplicationController
         @task = Task.find(params[:id])
         @task.destroy
     
-        respond_to do |format|
-          format.html { redirect_to tasks_url, notice: "task was successfully destroyed." }
-          format.json { head :no_content }
-        end
+        redirect_to tasks_path, :notice => "The task was deleted"
     end
 
     def task_params
