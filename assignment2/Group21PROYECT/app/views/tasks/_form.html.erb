@@ -34,7 +34,7 @@
                 <%= f.label :asignee_task_id %>
                 <%= f.collection_select :asignee_task_id, User.all, :id, :name, {prompt: "Select a User"}, {class: "form-control"} %>
         </div>
-
+        
         <% if @state.present? %>
             <%= f.hidden_field :state_id, value: @state.id%>
         <% else %>

@@ -9,6 +9,7 @@
             <div class="card h-100">
             <div class="card-header bg-primary text-white">
                 <h4 class="card-title" style="font-family: Verdana;"> <%= state.name %> </h4>
+                <a href="<%= new_task_path(state_id: state.id) %>" class="btn btn-light btn-block">Add Task</a>
             </div>
             <div class="card-body">
                 <div class="container">
