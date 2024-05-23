@@ -1,5 +1,5 @@
 class Board < ApplicationRecord
-    has_many :states, dependent: :delete_all
+    has_many :states, dependent: :destroy
     has_many :user_to_boards
     has_many :users, through: :user_to_boards
 

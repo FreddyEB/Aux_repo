@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <div class="text-center mb-4">
-    <h1 class="display-4" style="font-family: 'Comic Sans MS';"><%= @board.title %></h1>
-    <h2 class="lead" style="font-family: 'Comic Sans MS';"><%= @board.description %></h2>
+    <h1 class="display-4" style="font-family: 'Verdana';"><%= @board.title %></h1>
+    <h2 class="lead" style="font-family: 'Verdana';"><%= @board.description %></h2>
   </div>
   <div class="row">
         <% @states.each do |state| %>
@@ -35,7 +35,7 @@
   <div class="text-center mt-4">
     <%= link_to 'Back to Boards', boards_path, class: 'btn btn-warning mx-2' %>
     <%= link_to 'Edit Board', edit_board_path(@board), class: 'btn btn-primary mx-2' %>
-    <%= link_to 'Destroy Board', @board, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger mx-2' %>
+    <%= link_to 'Destroy Board', @board, method: :delete, data: { turbo_method: :delete, confirm: 'Are you sure?' }, class: 'btn btn-danger mx-2' %>
 
   </div>
 </div>

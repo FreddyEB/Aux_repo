@@ -7,7 +7,7 @@
       <h2 class="card-subtitle mb-2 text-muted">State Name: <%= @state.name %></h2>
       <%= link_to 'Back to States', states_path, class: 'btn btn-warning mt-3' %>
       <%= link_to 'State Editor', edit_state_path, class: 'btn btn-primary mt-3' %>
-      <%= link_to 'Destroy State', @state, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger mt-3' %>
+      <%= link_to 'Destroy State', @state, method: :delete, data: {turbo_method: :delete, confirm: 'Are you sure?' }, class: 'btn btn-danger mt-3' %>
       <%= link_to 'Create Tasks', new_task_path(state_id: @state.id), class: 'btn btn-success mt-3' %>
     </div>
       <%= link_to 'Back to Board', board_path(@state.board), class: 'btn btn-light mt-3' %>
