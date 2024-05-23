@@ -12,7 +12,7 @@
 
         <div class="form-group mb-3">
             <%= f.label :priority %>
-            <%= f.text_area :priority, class: "form-control",placeholder: "LOW : MEDIUM : HIGH", required: true %>
+            <%= f.collection_select :priority, [['LOW','LOW'], ['MEDIUM','MEDIUM'], ['HIGH','HIGH']], :first, :last, {prompt: "Select a Priority Level"},class: "form-control", required: true %>
         </div>
 
         <div class="form-group mb-3">
@@ -21,13 +21,13 @@
         </div>
 
         <div class="form-group mb-3">
-                <%= f.label :user_id %>
-                <%= f.collection_select :user_id, User.all, :id, :name, {prompt: "Select a User"}, {class: "form-control"} %>
+                <%= f.label :Informer %>
+                <%= f.collection_select :user_id, User.all, :id, :name, {prompt: "Select an Informer"}, {class: "form-control"} %>
         </div>
 
         <div class="form-group mb-3">
-                <%= f.label :asignee_task_id %>
-                <%= f.collection_select :asignee_task_id, User.all, :id, :name, {prompt: "Select a User"}, {class: "form-control"} %>
+                <%= f.label :Asignee %>
+                <%= f.collection_select :asignee_task_id, User.all, :id, :name, {prompt: "Select an Assignee"}, {class: "form-control"} %>
         </div>
         
         <% if @state.present? %>
