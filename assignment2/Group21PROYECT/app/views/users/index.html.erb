@@ -1,0 +1,30 @@
+<title>Users</title>
+<div class="container-fluid">
+    <h1> Welcome to your Users</h1>
+</div>
+<% if flash[:notice] %>
+  <div class="alert alert-success">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+<div class="container-l" style='margin: 30px'>
+    <div class="container text-center">
+        <table class="table table-striped-columns table-hover">
+            <tr>
+                <td id="td1" style="background-color: black; color: white;"> NAME </td>
+                <td id="td1" style="background-color: black; color: white;"> EMAIL </td>
+                <td id="td1" style="background-color: black; color: white;"> View User </td>
+            </tr>
+            <% @users.each do |user| %>
+            <tr>
+                <td><%= user.name %></td>
+                <td><%= user.email %></td>
+                <td><a href="<%= user_path(user) %>" class="btn btn-info">View</a></td>
+            </tr>
+            <% end %>
+        </table>
+    <%= link_to 'Back To Homepage', root_path, class: 'btn btn-secondary' %>
+    <%= link_to 'User Creator', new_user_path, class: 'btn btn-primary' %>
+
+    </div>
+</div>

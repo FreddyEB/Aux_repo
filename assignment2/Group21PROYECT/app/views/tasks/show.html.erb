@@ -11,7 +11,7 @@
       <h2 class="card-subtitle mb-2 text-muted">Task Priority: <%= @task.priority %></h2>
       <%= link_to 'Back to Tasks', tasks_path, class: 'btn btn-warning mt-3' %>
       <%= link_to 'Task Editor', edit_task_path, class: 'btn btn-primary mt-3' %>
-      <%= link_to 'Destroy Task', @task, method: :delete, data: {turbo_method: :delete, confirm: 'Are you sure?' }, class: 'btn btn-danger mt-3' %>
+      <%= link_to 'Destroy Task', @task, method: :delete, data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger mt-3' %>
     </div>
     <%= link_to 'Back to State', state_path(@task.state), class: 'btn btn-light mt-3' %>
   </div>
