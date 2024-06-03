@@ -56,7 +56,6 @@ b1.users << gb
 b2.users << cb
 b2.users << fb
 
-b1.users << fb
 
 b4.users << cb
 b4.users << fb

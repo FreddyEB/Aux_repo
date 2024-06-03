@@ -50,3 +50,22 @@
     </div>
   </div>
 </div>
+
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header bg-success">
+      <h2 class="text-light" >Board users</h2>
+    </div>
+      <p> </p>
+      <ul>
+       <% @board.user_to_boards.each do |user_to_board| %>
+        <li>
+
+          <%= user_to_board.user.name %> 
+        </li>
+      <% end %>
+        <p></p>
+      <%= link_to 'Add User', new_board_user_to_board_path(@board), class: 'btn btn-success' %>
+      </ul>
+  </div>
+</div>

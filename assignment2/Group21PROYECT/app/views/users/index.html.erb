@@ -1,6 +1,6 @@
 <title>Users</title>
 <div class="container-fluid">
-    <h1> Welcome to your Users</h1>
+    <h1> Welcome to our Users</h1>
 </div>
 <% if flash[:notice] %>
   <div class="alert alert-success">
@@ -19,12 +19,12 @@
             <tr>
                 <td><%= user.name %></td>
                 <td><%= user.email %></td>
-                <td><a href="<%= user_path(user) %>" class="btn btn-info">View</a></td>
+                <td><a href="<%= user_path(user) %>" class="btn btn-success">View</a></td>
             </tr>
             <% end %>
         </table>
     <%= link_to 'Back To Homepage', root_path, class: 'btn btn-secondary' %>
-    <%= link_to 'User Creator', new_user_path, class: 'btn btn-primary' %>
+    <!-- <%= link_to 'User Creator', new_user_path, class: 'btn btn-primary' %> -->
 
     </div>
 </div>

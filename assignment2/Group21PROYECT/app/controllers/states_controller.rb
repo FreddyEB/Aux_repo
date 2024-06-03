@@ -1,4 +1,5 @@
 class StatesController < ApplicationController
+    before_action :authenticate_user!
     def index
         @states = State.all
     end

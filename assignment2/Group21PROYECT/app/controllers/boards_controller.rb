@@ -1,4 +1,5 @@
 class BoardsController < ApplicationController
+    before_action :authenticate_user!, only: %i[ show new create edit update destroy ]
     def index
         @boards = Board.all
         #@state = State.all
@@ -20,6 +21,7 @@ class BoardsController < ApplicationController
     def create  
 		@board = Board.new(board_params)
 		if @board.save!
+            UserToBoard.create(user_id: board_params[:user_id], board_id: @board.id)
             flash[:notice] = 'Board was successfully created.'
 			redirect_to boards_path
 		else

@@ -21,33 +21,52 @@
         flex-direction: column;
       }
     </style>
-    </head>
-    
-    <body>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-success">
-        <a class="navbar-brand" href="#"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="navbar-brand" href="http://127.0.0.1:3000/Home"><span class="sr-only"> <strong>[HomePage]</strong></span></a>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+      <a class="navbar-brand" href="#">[TrelloClone.com]</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link text-light" href="http://127.0.0.1:3000/Home"><strong>HomePage</strong></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="http://127.0.0.1:3000/boards"><strong>Boards</strong></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="http://127.0.0.1:3000/states"><strong>States</strong></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="http://127.0.0.1:3000/tasks"><strong>Tasks</strong></a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <% if user_signed_in? %>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="http://127.0.0.1:3000/users"><strong>Users</strong></a>
             </li>
             <li class="nav-item">
-              <a class="navbar-brand" href="http://127.0.0.1:3000/boards"><span class="sr-only"> <strong>[Boards]</strong></span></a>
+              <a class="nav-link text-warning" href="<%= user_path(current_user) %>"><strong>User Profile</strong></a>
             </li>
             <li class="nav-item">
-              <a class="navbar-brand" href="http://127.0.0.1:3000/states"><span class="sr-only"> <strong>[States]</strong></span></a>
+              <%= button_to "Log Out", destroy_user_session_path, method: :delete, class: "nav-link text-danger btn btn-link" %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="<%= new_user_session_path %>"><strong>Login</strong></a>
             </li>
             <li class="nav-item">
-              <a class="navbar-brand" href="http://127.0.0.1:3000/tasks"><span class="sr-only"> <strong>[Tasks]</strong></span></a>
+              <a class="nav-link text-dark" href="<%= new_user_registration_path %>"><strong>Sign Up</strong></a>
             </li>
-            <li class="nav-item">
-              <a class="navbar-brand" href="http://127.0.0.1:3000/users"><span class="sr-only"> <strong>[Users]</strong></span></a>
-            </li>
-        </div>
-      </nav>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
     <%= yield %>
   </body>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
 </html>
