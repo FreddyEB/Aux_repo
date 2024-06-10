@@ -9,7 +9,7 @@
 
       <% boolean = 0 %>
       <% @all_board.each do |board| %>
-        <% if current_user == board.user_id %>
+        <% if current_user.id == board.user_id %>
           <% boolean = 1 %>
           <% break %>
         <% end %>

@@ -20,17 +20,21 @@
     <div class="container" style="">
         <div class="row">
             <% @states.each do |state| %>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="card-header bg-warning text-black">
-                                <h5 class="card-title"><%= state.name %></h5>
+                <% @user_board.where(board_id:state.board).each do |usertoboard| %>
+                    <% if current_user.id == usertoboard.user_id %>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="card-header bg-warning text-black">
+                                        <h5 class="card-title"><%= state.name %></h5>
+                                    </div>
+                                    <p class="card-text">Board: <%= state.board.title %></p>
+                                    <a href="<%= state_path(state) %>" class="btn btn-warning">View</a>
+                                </div>
                             </div>
-                            <p class="card-text">Board: <%= state.board.title %></p>
-                            <a href="<%= state_path(state) %>" class="btn btn-warning">View</a>
                         </div>
-                    </div>
-                </div>
+                    <% end %>
+                <% end %>
             <% end %>
         </div>
         <div class="row mt-4">

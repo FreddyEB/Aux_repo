@@ -10,8 +10,16 @@
         <% else %>
             <div class="form-group mb-3">
                 <%= f.label :board_id %>
-                <%= f.collection_select :board_id, Board.all, :id, :title, {prompt: "Select a board"}, {class: "form-control"} %>
-            </div>
+                <% boards = []%>
+                <% UserToBoard.all.each do |usertoboard| %>
+                    <% if current_user.id == usertoboard.user_id %>
+                        <% unless boards.include?(usertoboard.board_id) %>
+                            <% boards << Board.find(usertoboard.board_id) %>
+                        <% end %>
+                    <% end %>
+                <% end %>
+                <%= f.collection_select :board_id, boards, :id, :title, {prompt: "Select a board"}, {class: "form-control"} %>
+                </div>
         <% end %>
         <%= f.submit "Submit", class: "btn btn-primary" %>
     <% end %>

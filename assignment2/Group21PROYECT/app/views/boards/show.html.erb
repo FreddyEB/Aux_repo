@@ -1,16 +1,19 @@
 <div class="container mt-5">
-  <div class="text-center mb-4">
-    <h1 class="display-4" style="font-family: 'Verdana';"><%= @board.title %></h1>
-    <h2 class="lead" style="font-family: 'Verdana';"><%= @board.description %></h2>
-  </div>
-
   <% boolean = 0 %>
   <% @all_board.each do |board| %>
-      <% if current_user == board.user_id %>
+      <% if current_user.id == board.user_id %>
           <% boolean = 1 %>
           <% break %>
       <% end %>
   <% end %>
+  <% if boolean == 0 %>
+    <h1 class="text-danger">You are not autorized to modify this board!</h1>
+  <% end %>
+
+  <div class="text-center mb-4">
+    <h1 class="display-4" style="font-family: 'Verdana';"><%= @board.title %></h1>
+    <h2 class="lead" style="font-family: 'Verdana';"><%= @board.description %></h2>
+  </div>
 
   <div class="row">
         <% @states.each do |state| %>

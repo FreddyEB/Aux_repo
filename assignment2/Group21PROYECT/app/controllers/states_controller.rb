@@ -2,6 +2,7 @@ class StatesController < ApplicationController
     before_action :authenticate_user!
     def index
         @states = State.all
+        @user_board = UserToBoard.all
     end
 
     def show

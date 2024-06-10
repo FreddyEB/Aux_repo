@@ -19,18 +19,22 @@
 <div class="container">
     <div class="row">
         <% @tasks.each do |task| %>
-            <div class="col-lg-4 col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="card-header bg-info text-white">
-                                <h5 class="card-title"><%= task.title %></h5>
+            <% @user_board.where(board_id:task.state.board).each do |usertoboard| %>
+                <% if current_user.id == usertoboard.user_id %>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-header bg-info text-white">
+                                    <h5 class="card-title"><%= task.title %></h5>
+                                </div>
+                                <p class="card-text"><strong>State:</strong> <%= task.state.name %></p>
+                                <p class="card-text"><strong>Board:</strong> <%= task.state.board.title %></p>
+                                <a href="<%= task_path(task) %>" class="btn btn-info">View Task</a>
+                            </div>
                         </div>
-                        <p class="card-text"><strong>State:</strong> <%= task.state.name %></p>
-                        <p class="card-text"><strong>Board:</strong> <%= task.state.board.title %></p>
-                        <a href="<%= task_path(task) %>" class="btn btn-info">View Task</a>
                     </div>
-                </div>
-            </div>
+                <% end %>
+            <% end %>
         <% end %>
     </div>
     <div class="row mt-4">

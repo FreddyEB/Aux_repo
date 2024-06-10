@@ -31,7 +31,19 @@
 
         <div class="form-group mb-3">
                 <%= f.label :Asignee %>
-                <%= f.collection_select :asignee_task_id, User.all, :id, :name, {prompt: "Select an Assignee"}, {class: "form-control"} %>
+                <% asignees = [] %>
+                <% asignee_names = [] %>
+                <% UserToBoard.where(user_id:current_user.id).each do |usertoboard| %>
+                    <% UserToBoard.all.each do |usertoboard2| %>
+                        <% if usertoboard.board_id == usertoboard2.board_id %>
+                            <% unless asignee_names.include?(usertoboard2.user.name) %>
+                                <% asignee_names << User.find(usertoboard2.user_id).name %>
+                                <% asignees << User.find(usertoboard2.user_id) %>
+                            <% end %>
+                        <% end %>
+                    <% end %>
+                <% end %>
+                <%= f.collection_select :asignee_task_id, asignees, :id, :name, {prompt: "Select an Assignee"}, {class: "form-control"} %>
         </div>
         
         <% if @state.present? %>
@@ -42,7 +54,27 @@
                     <%= f.hidden_field :state_id, value: @state.id%>
                 <% else %>
                     <%= f.label :state_id %>
-                    <%= f.collection_select :state_id, State.all, :id, :name_with_board, {prompt: "Select a State"}, {class: "form-control"} %>
+                    <% boards = [] %>
+                    <% UserToBoard.where(user_id:current_user.id).each do |usertoboard| %>
+                        <% UserToBoard.all.each do |usertoboard2| %>
+                            <% if usertoboard.board_id == usertoboard2.board_id %>
+                                <% unless asignees.include?(usertoboard2.board_id) %>
+                                    <% boards << Board.find(usertoboard2.board_id) %>
+                                <% end %>
+                            <% end %>
+                        <% end %>
+                    <% end %>
+                    <% states = [] %>
+                    <% State.all.each do |st| %>
+                        <% boards.each do |brd| %>
+                            <% if st.board == brd %>
+                                <% unless states.include?(st) %>
+                                <% states << st %>
+                                <% end %>
+                            <% end %>
+                        <% end %>
+                    <% end %>
+                    <%= f.collection_select :state_id, states, :id, :name_with_board, {prompt: "Select a State"}, {class: "form-control"} %>
                 <% end %>
             </div>
         <% end %>
