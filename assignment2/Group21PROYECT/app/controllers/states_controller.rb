@@ -7,6 +7,7 @@ class StatesController < ApplicationController
     def show
         @state = State.find(params['id'])
         @tasks = @state.tasks
+        @all_board = UserToBoard.where(board_id:@state.board)
     end
 
     def new

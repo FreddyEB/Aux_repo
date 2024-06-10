@@ -3,13 +3,24 @@
     <h1 class="display-4" style="font-family: 'Verdana';"><%= @board.title %></h1>
     <h2 class="lead" style="font-family: 'Verdana';"><%= @board.description %></h2>
   </div>
+
+  <% boolean = 0 %>
+  <% @all_board.each do |board| %>
+      <% if current_user == board.user_id %>
+          <% boolean = 1 %>
+          <% break %>
+      <% end %>
+  <% end %>
+
   <div class="row">
         <% @states.each do |state| %>
         <div class="col-md-4 mb-4">
             <div class="card h-100">
             <div class="card-header bg-primary text-white">
                 <h4 class="card-title" style="font-family: Verdana;"> <%= state.name %> </h4>
-                <a href="<%= new_task_path(state_id: state.id) %>" class="btn btn-light btn-block">Add Task</a>
+                <% if boolean == 1 %>
+                    <a href="<%= new_task_path(state_id: state.id) %>" class="btn btn-light btn-block">Add Task</a>
+                <% end %>
             </div>
             <div class="card-body">
                 <div class="container">
@@ -34,9 +45,10 @@
   </div>
   <div class="text-center mt-4">
     <%= link_to 'Back to Boards', boards_path, class: 'btn btn-warning mx-2' %>
-    <%= link_to 'Edit Board', edit_board_path(@board), class: 'btn btn-primary mx-2' %>
-    <%= link_to 'Destroy Board', @board, method: :delete, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger mx-2' %>
-
+    <% if boolean == 1 %>
+      <%= link_to 'Edit Board', edit_board_path(@board), class: 'btn btn-primary mx-2' %>
+      <%= link_to 'Destroy Board', @board, method: :delete, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger mx-2' %>
+    <% end %>
   </div>
 </div>
 
@@ -46,8 +58,14 @@
       <h4 class="mb-0">Create a New State for this Board</h4>
     </div>
     <div class="card-body">
-      <%= link_to 'State Creator', new_state_path(board_id: @board.id), class: 'btn btn-light' %>
-    </div>
+      <% if boolean == 1 %>
+          <%= link_to 'State Creator', new_state_path(board_id: @board.id), class: 'btn btn-light' %>
+      <% else %>
+        <div class="card-body d-flex justify-content-center align-items-center centered-message">
+          <p><strong>You are not authorized to create states for this board</strong></p>
+        </div>
+      <% end %>
+    </div>        
   </div>
 </div>
 
@@ -60,12 +78,13 @@
       <ul>
        <% @board.user_to_boards.each do |user_to_board| %>
         <li>
-
           <%= user_to_board.user.name %> 
         </li>
       <% end %>
-        <p></p>
-      <%= link_to 'Add User', new_board_user_to_board_path(@board), class: 'btn btn-success' %>
+      <% if boolean == 1 %>
+          <p></p>
+        <%= link_to 'Add User', new_board_user_to_board_path(@board), class: 'btn btn-success' %>
+      <% end %>
       </ul>
   </div>
 </div>

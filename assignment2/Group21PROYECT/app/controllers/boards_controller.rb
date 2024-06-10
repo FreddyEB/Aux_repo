@@ -1,8 +1,8 @@
 class BoardsController < ApplicationController
     before_action :authenticate_user!, only: %i[ show new create edit update destroy ]
+    
     def index
         @boards = Board.all
-        #@state = State.all
     end
 
     def show
@@ -12,6 +12,7 @@ class BoardsController < ApplicationController
         @states.each do |state| 
             @tasks << state.tasks
         end
+        @all_board = UserToBoard.where(board_id:@board)
     end
 
     def new

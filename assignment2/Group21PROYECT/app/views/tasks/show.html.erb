@@ -10,8 +10,14 @@
       <h2 class="card-subtitle mb-2 text-muted">Task Assignee ID: <%= @task.asignee_task_id %> | Name: <%= @task.asignee_task.user.name %></h2>
       <h2 class="card-subtitle mb-2 text-muted">Task Priority: <%= @task.priority %></h2>
       <%= link_to 'Back to Tasks', tasks_path, class: 'btn btn-warning mt-3' %>
-      <%= link_to 'Task Editor', edit_task_path, class: 'btn btn-primary mt-3' %>
-      <%= link_to 'Destroy Task', @task, method: :delete, data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger mt-3' %>
+      <% if current_user == @task.user or current_user == @task.asignee_task %>
+        <%= link_to 'Task Editor', edit_task_path, class: 'btn btn-primary mt-3' %>
+        <%= link_to 'Destroy Task', @task, method: :delete, data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger mt-3' %>
+      <% else %>
+        <div class="card-body d-flex justify-content-center align-items-center centered-message">
+          <p><strong>You are not authorized to delete or edit this task</strong></p>
+        </div>
+      <% end %>
     </div>
     <%= link_to 'Back to State', state_path(@task.state), class: 'btn btn-light mt-3' %>
   </div>

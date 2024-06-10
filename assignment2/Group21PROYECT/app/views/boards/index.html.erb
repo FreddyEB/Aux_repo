@@ -7,6 +7,11 @@
     <%= flash[:notice] %>
   </div>
 <% end %>
+<% if flash[:alert] %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
 <div class="container-l" style='margin: 30px'>
     <div class="container text-center">
         <table class="table table-striped-columns table-hover">
@@ -19,12 +24,17 @@
             <tr>
                 <td><%= board.title %></td>
                 <td><%= board.description %></td>
-                <td><%= link_to 'View', board_path(board), class: 'card-link btn btn-success'%></td>
+                <% if user_signed_in? %>
+                    <td><%= link_to 'View', board_path(board), class: 'card-link btn btn-success'%></td>
+                <% else %>
+                    <td><%= link_to 'View', board_path(board), class: 'card-link btn btn-success'%></td>
+                <% end %>
             </tr>
             <% end %>
         </table>
     <%= link_to 'Back To Homepage', root_path, class: 'btn btn-secondary' %>
-    <%= link_to 'Board Creator', new_board_path, class: 'btn btn-primary' %>
-
+    <% if user_signed_in? %>
+        <%= link_to 'Board Creator', new_board_path, class: 'btn btn-primary' %>
+    <% end %>
     </div>
 </div>
