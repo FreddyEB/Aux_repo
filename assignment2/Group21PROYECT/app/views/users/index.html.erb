@@ -11,15 +11,15 @@
     <div class="container text-center">
         <table class="table table-striped-columns table-hover">
             <tr>
-                <td id="td1" style="background-color: black; color: white;"> NAME </td>
-                <td id="td1" style="background-color: black; color: white;"> EMAIL </td>
-                <td id="td1" style="background-color: black; color: white;"> View User </td>
+                <th id="td1" > NAME </th>
+                <th id="td1"> EMAIL </th>
+                <th id="td1"> View User </th>
             </tr>
             <% @users.each do |user| %>
             <tr>
                 <td><%= user.name %></td>
                 <td><%= user.email %></td>
-                <td><a href="<%= user_path(user) %>" class="btn btn-success">View</a></td>
+                <td><a href="<%= user_path(user) %>" class="btn btn-primary">View</a></td>
             </tr>
             <% end %>
         </table>

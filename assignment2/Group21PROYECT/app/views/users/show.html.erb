@@ -32,8 +32,8 @@
       <%= link_to 'Destroy User', @user, method: :delete, data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger mt-3' %>
       <%= link_to 'Edit User', edit_user_registration_path, class: 'btn btn-info mt-3' %>
     <% else %>
-      <div class="card-body d-flex justify-content-center align-items-center centered-message">
-        <p><strong>You are not authorized to delete or edit this user</strong></p>
+      <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        View Only (not authorized to delete or edit this user)
       </div>
     <% end %>
   </div>

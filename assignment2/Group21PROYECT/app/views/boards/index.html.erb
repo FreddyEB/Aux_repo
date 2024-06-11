@@ -1,6 +1,6 @@
 <title>Boards</title>
 <div class="container-fluid">
-    <h1> Welcome to your TrelloClone's Boards </h1>
+    <h1> Welcome to TrelloClone's Boards </h1>
 </div>
 <% if flash[:notice] %>
   <div class="alert alert-success alert-dismissible fade show">
@@ -12,9 +12,9 @@
     <div class="container text-center">
         <table class="table table-striped-columns table-hover">
             <tr>
-                <td id="td1" style="background-color: black; color: white;"> TITLE </td>
-                <td id="td1" style="background-color: black; color: white;"> DESCRIPTION </td>
-                <td id="td1" style="background-color: black; color: white;"> Board Viewer </td>
+                <th id="th1" > TITLE </th>
+                <th id="th1"> DESCRIPTION </th>
+                <th id="th1"> Board Viewer </th>
             </tr>
             <% @boards.each do |board| %>
             <tr>
