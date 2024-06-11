@@ -22,6 +22,7 @@
       }
     </style>
   </head>
+
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-success">
       <a class="navbar-brand" href="#">[TrelloClone.com]</a>
@@ -65,8 +66,19 @@
         </ul>
       </div>
     </nav>
+      <% if notice %>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <%= notice %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <% end %>
+
+      <% if alert %>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <%= alert %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <% end %>
     <%= yield %>
   </body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
 </html>

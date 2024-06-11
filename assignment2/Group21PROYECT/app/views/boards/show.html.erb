@@ -7,7 +7,10 @@
       <% end %>
   <% end %>
   <% if boolean == 0 %>
-    <h1 class="text-danger">You are not autorized to modify this board!</h1>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      You are not autorized to modify this board! (Create, Edit or Delete)
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
   <% end %>
 
   <div class="text-center mb-4">
