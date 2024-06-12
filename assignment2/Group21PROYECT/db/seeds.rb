@@ -9,73 +9,43 @@
 #   end
 
 # 3boards, c/u con 4 states y al menos 5 tasks, y 3 users
+
+TeamMembership.delete_all
 User.delete_all
 Board.delete_all
 Task.delete_all
 State.delete_all
+Team.delete_all
 
-fb = User.create(
-    name: 'Freddy Bacigalupo',
-    email: 'fbc@example.com',
-    password: 'frocks007',
-)
-gb = User.create(
-    name: 'Gianfranco Bobadilla',
-    email: 'gbr@example.com',
-    password: 'gianfrancobob02',
-)
-cb = User.create(
-    name: 'Clemente Barros',
-    email: 'cbb@example.com',
-    password: 'cbspasskey',
-)
+team1 = Team.create(name: 'Team Alpha')
+team2 = Team.create(name: 'Team Beta')
+team3 = Team.create(name: 'Team Gamma')
 
+fb = User.create(name: 'Freddy Bacigalupo', email: 'fbc@example.com', password: 'frocks007')
+gb = User.create(name: 'Gianfranco Bobadilla', email: 'gbr@example.com', password: 'gianfrancobob02')
+cb = User.create(name: 'Clemente Barros', email: 'cbb@example.com', password: 'cbspasskey')
 
-b1 = Board.create(
-    title: 'My First board',
-    description: 'This board will be used for college assignments',
-)
-b2 = Board.create(
-    title: 'My Second board',
-    description: 'This board will be used for work assignments',
-)
-b3 = Board.create(
-    title: 'My Third board',
-    description: 'This board will be used for at home tasks',
-)
+TeamMembership.create(user: fb, team: team1)
+TeamMembership.create(user: gb, team: team2)
+TeamMembership.create(user: cb, team: team3)
+TeamMembership.create(user: fb, team: team3)
+TeamMembership.create(user: cb, team: team1)
 
-b4 = Board.create(
-    title: 'My fourth board',
-    description: 'This board will be used for...',
-)
+b1 = Board.create(title: 'My First board', description: 'This board will be used for college assignments', team: team1)
+b2 = Board.create(title: 'My Second board', description: 'This board will be used for work assignments', team: team2)
+b3 = Board.create(title: 'My Third board', description: 'This board will be used for at home tasks', team: team3)
 
-b1.users << cb
-b1.users << fb
-b1.users << gb
+states_board_1 = ['Not started', 'Early stages', 'In progress', 'Finished'].map do |state_name|
+  State.create(name: state_name, board: b1)
+end
 
-b2.users << cb
-b2.users << fb
+states_board_2 = ['Not started yet', 'Early stages 2', 'In progress 2', 'Finished 2'].map do |state_name|
+  State.create(name: state_name, board: b2)
+end
 
-
-b4.users << cb
-b4.users << fb
-b4.users << gb
-
-
-st1 = State.create(name: 'Not started', board_id: 1)
-st2 = State.create(name: 'Early stages', board_id: 1)
-st3 = State.create(name: 'In progress', board_id: 1)
-st4 = State.create(name: 'Finished', board_id: 1)
-
-st11 = State.create(name: 'Not started yet', board_id: 2)
-st22 = State.create(name: 'Early stages 2', board_id: 2)
-st33 = State.create(name: 'In progress 2', board_id: 2)
-st44 = State.create(name: 'Finished 2', board_id: 2)
-
-st111 = State.create(name: 'Not started 3', board_id: 3)
-st222 = State.create(name: 'Early stages 3', board_id: 3)
-st333 = State.create(name: 'In progress 3', board_id: 3)
-st444 = State.create(name: 'Finished 3', board_id: 3)
+states_board_3 = ['Not started 3', 'Early stages 3', 'In progress 3', 'Finished 3'].map do |state_name|
+  State.create(name: state_name, board: b3)
+end
 
 as1 = AsigneeTask.create(user_id: 1)
 as2 = AsigneeTask.create(user_id: 2)
@@ -262,4 +232,3 @@ task5_h = Task.create(
   user_id: 2,
   asignee_task_id: 3,
 )
-

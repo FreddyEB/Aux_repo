@@ -1,24 +1,29 @@
 <title>Boards</title>
 <div class="container-fluid">
-    <h1> Welcome to your TrelloClone's Boards </h1>
+    <h1> Welcome to TrelloClone's Boards </h1>
 </div>
 <% if flash[:notice] %>
-  <div class="alert alert-success">
-    <%= flash[:notice] %>
-  </div>
+    <div class="container">
+        <div class="alert alert-success alert-dismissible fade show">
+            <%= flash[:notice] %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
 <% end %>
 <div class="container-l" style='margin: 30px'>
     <div class="container text-center">
         <table class="table table-striped-columns table-hover">
             <tr>
-                <td id="td1" style="background-color: black; color: white;"> TITLE </td>
-                <td id="td1" style="background-color: black; color: white;"> DESCRIPTION </td>
-                <td id="td1" style="background-color: black; color: white;"> Board Viewer </td>
+                <th> TITLE </th>
+                <th> DESCRIPTION </th>
+                <th> Board Owner </th>
+                <th> Board Viewer </th>
             </tr>
             <% @boards.each do |board| %>
             <tr>
                 <td><%= board.title %></td>
                 <td><%= board.description %></td>
+                <td><%= board.team.name %></td>
                 <td><%= link_to 'View', board_path(board), class: 'card-link btn btn-success'%></td>
             </tr>
             <% end %>

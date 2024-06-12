@@ -21,7 +21,6 @@ class BoardsController < ApplicationController
     def create  
 		@board = Board.new(board_params)
 		if @board.save!
-            UserToBoard.create(user_id: board_params[:user_id], board_id: @board.id)
             flash[:notice] = 'Board was successfully created.'
 			redirect_to boards_path
 		else
@@ -56,6 +55,6 @@ class BoardsController < ApplicationController
     end
 
     def board_params
-		params.require(:board).permit(:title, :description, :user_id)
+		params.require(:board).permit(:title, :description, :user_id, :team_id)
 	end
 end

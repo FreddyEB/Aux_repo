@@ -12,10 +12,11 @@
     </div>
     <% if flash[:notice] %>
         <div class="container">
-            <div class="alert alert-success">
-                <%= flash[:notice] %>
-            </div>
+        <div class="alert alert-success alert-dismissible fade show">
+            <%= flash[:notice] %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
+  </div>
     <% end %>
     <div class="container" style="">
         <div class="row">

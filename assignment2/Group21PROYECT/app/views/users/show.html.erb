@@ -7,11 +7,11 @@
       <h2 class="card-title">User E-mail: <%= @user.email %></h2>
 
       <div class="mt-4">
-        <h3>Boards</h3>
+        <h3>Teams</h3>
         <ul class="list-group">
-          <% @boards.each do |board| %>
+          <% @teams.each do |team| %>
             <li class="list-group-item">
-              <strong><%= link_to board.title, board_path(board) %></strong>
+              <strong><%= link_to team.name, team_path(team) %></strong>
             </li>
           <% end %>
         </ul>

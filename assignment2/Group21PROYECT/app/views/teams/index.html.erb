@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Teams</title>
+</head>
+<body>
+  <div class="container mt-5">
+    <h1>Teams</h1>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Members</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @teams.each do |team| %>
+          <tr>
+            <td><%= team.name %></td>
+            <td>
+              <ul class="list-unstyled">
+                <% team.users.each do |user| %>
+                  <li><%= user.name %></li>
+                <% end %>
+              </ul>
+            </td>
+            <td>
+                <% if current_user && current_user.teams.include?(team) %>
+                    <%= link_to 'Add User', new_team_team_membership_path(team), class: 'btn btn-success' %>
+                    <%= link_to 'Edit Name', edit_team_path(team), class: 'btn btn-primary' %>
+                    <%= link_to 'Destroy', team_path(team), method: :delete, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+                <% else %>
+                    <p><strong>You are not authorized to perform actions on this team</strong></p>
+                
+                <% end %>
+                
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <a href="<%= new_team_path %>" class="btn btn-primary">New Team</a>
+  </div>
+</body>
+</html>

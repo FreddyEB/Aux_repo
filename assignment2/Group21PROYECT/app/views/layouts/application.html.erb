@@ -36,9 +36,11 @@
           <li class="nav-item">
             <a class="nav-link text-light" href="http://127.0.0.1:3000/boards"><strong>Boards</strong></a>
           </li>
+          <!--
           <li class="nav-item">
             <a class="nav-link text-light" href="http://127.0.0.1:3000/states"><strong>States</strong></a>
           </li>
+          -->
           <li class="nav-item">
             <a class="nav-link text-light" href="http://127.0.0.1:3000/tasks"><strong>Tasks</strong></a>
           </li>
@@ -47,6 +49,9 @@
           <% if user_signed_in? %>
             <li class="nav-item">
               <a class="nav-link text-light" href="http://127.0.0.1:3000/users"><strong>Users</strong></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="http://127.0.0.1:3000/teams"><strong>Teams</strong></a>
             </li>
             <li class="nav-item">
               <a class="nav-link text-warning" href="<%= user_path(current_user) %>"><strong>User Profile</strong></a>

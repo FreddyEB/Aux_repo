@@ -20,10 +20,11 @@ class TasksController < ApplicationController
     def create  
 		@task = Task.new(task_params)
         asignee = AsigneeTask.new(user_id: task_params[:user_id])
+        @board = @task.state.board_id
         if asignee.save
             respond_to do |format|
                 if @task.save
-                    format.html { redirect_to tasks_path, notice: "Task was successfully created." }
+                    format.html { redirect_to board_path(@board), notice: "Task was successfully created." }
                     format.json { render :show, status: :created, location: @task }
                 else
                     format.html { render :new, status: :unprocessable_entity }
@@ -39,8 +40,9 @@ class TasksController < ApplicationController
 
     def update
 		@task = Task.find(params[:id])
+        @board = @task.state.board_id
 		if @task.update task_params
-				redirect_to tasks_path
+				redirect_to board_path(@board)
 		else
 				render :edit
 		end

@@ -3,13 +3,23 @@
     <h1 class="display-4" style="font-family: 'Verdana';"><%= @board.title %></h1>
     <h2 class="lead" style="font-family: 'Verdana';"><%= @board.description %></h2>
   </div>
+  <% unless current_user && current_user.teams.include?(@board.team) %>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      You are not authorized to modify this board! (Create, Edit or Delete)
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  <% end %>
+  
   <div class="row">
         <% @states.each do |state| %>
         <div class="col-md-4 mb-4">
             <div class="card h-100">
             <div class="card-header bg-primary text-white">
                 <h4 class="card-title" style="font-family: Verdana;"> <%= state.name %> </h4>
-                <a href="<%= new_task_path(state_id: state.id) %>" class="btn btn-light btn-block">Add Task</a>
+                <% if current_user && current_user.teams.include?(@board.team) %>
+                  <a href="<%= state_path(state) %>" class="btn btn-warning">State View</a>
+                  <a href="<%= new_task_path(state_id: state.id) %>" class="btn btn-light btn-block">Add Task</a>
+                <% end %>
             </div>
             <div class="card-body">
                 <div class="container">
@@ -20,7 +30,9 @@
                         <div class="card-body">
                             <h5 class="card-title"><%= task.title %></h5>
                             <p class="card-text"><%= task.description %></p>
-                            <a href="<%= task_path(task) %>" class="btn btn-primary btn-block">View Task</a>
+                            <% if current_user && current_user.teams.include?(@board.team) %>
+                              <a href="<%= task_path(task) %>" class="btn btn-primary btn-block">View Task</a>
+                            <% end %>
                         </div>
                         </div>
                     </div>
@@ -34,9 +46,11 @@
   </div>
   <div class="text-center mt-4">
     <%= link_to 'Back to Boards', boards_path, class: 'btn btn-warning mx-2' %>
-    <%= link_to 'Edit Board', edit_board_path(@board), class: 'btn btn-primary mx-2' %>
-    <%= link_to 'Destroy Board', @board, method: :delete, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger mx-2' %>
-
+    <% if current_user && current_user.teams.include?(@board.team) %>
+      <%= link_to 'Edit Board', edit_board_path(@board), class: 'btn btn-primary mx-2' %>
+      <%= link_to 'Destroy Board', @board, method: :delete, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger mx-2' %>
+    <% end %>
+    
   </div>
 </div>
 
@@ -46,26 +60,13 @@
       <h4 class="mb-0">Create a New State for this Board</h4>
     </div>
     <div class="card-body">
+    <% if current_user && current_user.teams.include?(@board.team) %>
       <%= link_to 'State Creator', new_state_path(board_id: @board.id), class: 'btn btn-light' %>
+    <% else %>
+    <p><strong>You are not authorized to add states to this board.</strong></p>
+    <% end %>
+    
     </div>
   </div>
 </div>
 
-<div class="container mt-5">
-  <div class="card">
-    <div class="card-header bg-success">
-      <h2 class="text-light" >Board users</h2>
-    </div>
-      <p> </p>
-      <ul>
-       <% @board.user_to_boards.each do |user_to_board| %>
-        <li>
-
-          <%= user_to_board.user.name %> 
-        </li>
-      <% end %>
-        <p></p>
-      <%= link_to 'Add User', new_board_user_to_board_path(@board), class: 'btn btn-success' %>
-      </ul>
-  </div>
-</div>

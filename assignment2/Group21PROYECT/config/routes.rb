@@ -12,11 +12,12 @@ Rails.application.routes.draw do
   root 'static_pages#Home'
   resources :boards do 
     resources :states
-    #resources :user_to_boards
-    resources :user_to_boards, only: [:new, :create, :destroy]
   end
   resources :states
   resources :tasks
   resources :users
-  resources :user_to_boards
+  resources :teams do
+    resources :team_memberships, only: [:new, :create, :destroy]
+  end
+  resources :team_memberships
 end

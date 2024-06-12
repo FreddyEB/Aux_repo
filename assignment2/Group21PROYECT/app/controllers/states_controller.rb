@@ -20,10 +20,11 @@ class StatesController < ApplicationController
 
     def create  
 		@state = State.new(state_params)
+        @board = @state.board_id
         respond_to do |format|
             if @state.save
                 flash[:notice] = 'State was successfully created.'
-                format.html { redirect_to states_path, notice: "State was successfully created." }
+                format.html { redirect_to board_path(@board), notice: "State was successfully created." }
                 format.json { render :show, status: :created, location: @state }
             else
                 flash[:alert] = 'There was an error creating the state.'
@@ -38,9 +39,10 @@ class StatesController < ApplicationController
 
     def update
 		@state = State.find(params[:id])
+        @board = @state.board_id
 		if @state.update state_params
                 flash[:notice] = 'State was successfully updated.'
-				redirect_to states_path
+				redirect_to board_path(@board)
 		else
                 flash[:alert] = 'There was an error updating the state.'
 				render :edit
